@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksansom <ksansom@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/08 15:52:21 by ksansom           #+#    #+#             */
-/*   Updated: 2023/11/08 16:22:26 by ksansom          ###   ########.fr       */
+/*   Created: 2023/05/12 16:32:27 by ksansom           #+#    #+#             */
+/*   Updated: 2023/11/01 13:20:13 by ksansom          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#include "../inc/libft.h"
 
-# include "../libft/inc/libft.h"
-# include <mlx.h>
-# include <math.h>
+char	*ft_strchr(const char *s, int c)
+{
+	int	i;
 
-# define HEIGHT 500
-# define WIDTH 500
-
-#endif
+	i = 0;
+	while (s[i] != (unsigned char)c && s[i])
+		i++;
+	if (!s[i])
+		return (0);
+	return ((char *)&s[i]);
+}

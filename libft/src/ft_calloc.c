@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ksansom <ksansom@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ksansom <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/08 15:52:21 by ksansom           #+#    #+#             */
-/*   Updated: 2023/11/08 16:22:26 by ksansom          ###   ########.fr       */
+/*   Created: 2023/05/11 13:30:24 by ksansom           #+#    #+#             */
+/*   Updated: 2023/05/12 16:54:27 by ksansom          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#include "../inc/libft.h"
 
-# include "../libft/inc/libft.h"
-# include <mlx.h>
-# include <math.h>
+void	*ft_calloc(size_t nmemb, size_t size)
+{
+	void	*ptr;
 
-# define HEIGHT 500
-# define WIDTH 500
-
-#endif
+	ptr = (void *)malloc(size * nmemb);
+	if (!ptr)
+		return (0);
+	ft_memset(ptr, 0, (size * nmemb));
+	return (ptr);
+}

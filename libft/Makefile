@@ -5,42 +5,36 @@
 #                                                     +:+ +:+         +:+      #
 #    By: ksansom <ksansom@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/11/08 16:07:51 by ksansom           #+#    #+#              #
-#    Updated: 2023/11/08 16:09:15 by ksansom          ###   ########.fr        #
+#    Created: 2023/05/19 11:51:45 by ksansom           #+#    #+#              #
+#    Updated: 2023/11/06 15:27:31 by ksansom          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = so_long
-
-SRCS = $(wildcard src/*.c)
-
-OBJS = $(SRCS:.c=.o)
+NAME = libft.a
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
-
+LIB	= ar rcs
 RM = rm -rf
 
-.c.o :
-	$(CC) $(CFLAGS) -c $< -o $@
-	$(CC) $(CFLAGS) -I/usr/include -Imlx_linux -O3 -c $< -o $@
+SRCS = $(wildcard src/*.c)
+OBJS = $(SRCS:.c=.o)
 
-all: $(NAME) $(CHECK)
+.c.o :
+	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
+	
+all: $(NAME)
 
 $(NAME): $(OBJS)
-	@$(MAKE) -C ./libft
-	@$(MAKE) -C ./mlx_linux
-	@$(CC) $(CFLAGS) $(OBJS) ./libft/libft.a -o $(NAME)
-	@$(CC) $(CFLAGS) $(OBJS) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
-
+	@$(LIB) libft.a $(OBJS)
+	
 clean:
 	@$(RM) $(OBJS)
-	@$(MAKE) -C ./libft fclean
-	@$(MAKE) -C ./mlx_linux fclean
 
 fclean: clean 
-	@$(RM) $(NAME) 
+	@$(RM) $(NAME)
 
 re: fclean all
 
 .PHONY: all clean fclean re
+

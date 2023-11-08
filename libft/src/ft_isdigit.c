@@ -1,23 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ksansom <ksansom@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ksansom <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/08 15:52:21 by ksansom           #+#    #+#             */
-/*   Updated: 2023/11/08 16:22:26 by ksansom          ###   ########.fr       */
+/*   Created: 2023/05/03 10:16:46 by ksansom           #+#    #+#             */
+/*   Updated: 2023/05/03 10:18:29 by ksansom          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "../inc/libft.h"
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
-
-# include "../libft/inc/libft.h"
-# include <mlx.h>
-# include <math.h>
-
-# define HEIGHT 500
-# define WIDTH 500
-
-#endif
+int	ft_isdigit(int c)
+{
+	if (c >= 48 && c <= 57)
+		return (1);
+	return (0);
+}

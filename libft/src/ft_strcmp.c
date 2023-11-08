@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksansom <ksansom@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/08 15:52:21 by ksansom           #+#    #+#             */
-/*   Updated: 2023/11/08 16:22:26 by ksansom          ###   ########.fr       */
+/*   Created: 2023/10/25 11:23:14 by ksansom           #+#    #+#             */
+/*   Updated: 2023/10/25 11:24:02 by ksansom          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+int	ft_strcmp(char *s1, char *s2)
+{
+	int	i;
 
-# include "../libft/inc/libft.h"
-# include <mlx.h>
-# include <math.h>
-
-# define HEIGHT 500
-# define WIDTH 500
-
-#endif
+	i = 0;
+	while (s1[i])
+	{
+		if (s1[i] != s2[i])
+			break ;
+		i++;
+	}
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+}
