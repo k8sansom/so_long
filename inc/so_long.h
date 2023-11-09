@@ -13,13 +13,22 @@
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include <mlx.h>
-# include <math.h>
+# include "mlx/mlx.h"
+# include <stdio.h>
 # include <stdlib.h>
-# include <time.h>
+# include <X11/X.h>
+# include <X11/keysym.h>
 
 # define HEIGHT 500
 # define WIDTH 800
 # define PURPLE 0xff00ff
+
+typedef struct s_data
+{
+	void		*mlx_ptr;
+	void		*win_ptr;
+	//void		*textures[5];
+	//t_map		*map; 
+}	t_data;
 
 #endif
