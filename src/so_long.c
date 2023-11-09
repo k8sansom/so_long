@@ -14,10 +14,25 @@
 
 int main(void)
 {
-    void	*mlx_cnx;
+    void	*mlx_ptr;
+	void	*mlx_window;
+	int		y;
+	int		x;
 
-    mlx_cnx = mlx_init();
-    mlx_new_window(mlx_cnx, HEIGHT, WIDTH, "I did it!");
-
-    mlx_loop(mlx_cnx);
+	//srand (time (NULL));
+	y = HEIGHT * 0.1;
+    mlx_ptr = mlx_init();
+    mlx_window = mlx_new_window(mlx_ptr, WIDTH, HEIGHT, "I did it!");
+	while (y < HEIGHT * 0.9)
+	{
+		x = WIDTH * 0.1;
+		while (x < WIDTH * 0.9)
+		{
+			mlx_pixel_put (mlx_ptr, mlx_window, x, y, PURPLE);
+			x++;
+		}
+		y++;
+	}
+	mlx_string_put (mlx_ptr, mlx_window, WIDTH * 0.8, HEIGHT * 0.95, rand () % 0x1000000, "by K8");
+	mlx_loop(mlx_ptr);
 }

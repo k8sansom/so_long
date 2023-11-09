@@ -13,11 +13,13 @@
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "../libft/inc/libft.h"
 # include <mlx.h>
 # include <math.h>
+# include <stdlib.h>
+# include <time.h>
 
 # define HEIGHT 500
-# define WIDTH 500
+# define WIDTH 800
+# define PURPLE 0xff00ff
 
 #endif
