@@ -12,12 +12,12 @@
 
 #include "../inc/so_long.h"
 
-int	main(void)
+int main(void)
 {
-	void	*mlx_cnx;
-	void	*window;
+    void	*mlx_cnx;
 
-	mlx_cnx = mlx_init ();
-	window = mlx_new_window(mlx_cnx, HEIGHT, WIDTH, "I did it!");
-	mlx_loop (mlx_cnx);
+    mlx_cnx = mlx_init();
+    mlx_new_window(mlx_cnx, HEIGHT, WIDTH, "I did it!");
+
+    mlx_loop(mlx_cnx);
 }

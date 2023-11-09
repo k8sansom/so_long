@@ -13,7 +13,6 @@
 NAME = so_long
 
 SRCS = $(wildcard src/*.c)
-
 OBJS = $(SRCS:.c=.o)
 
 CC = gcc
@@ -21,25 +20,39 @@ CFLAGS = -Wall -Wextra -Werror
 
 RM = rm -rf
 
-.c.o :
-	$(CC) $(CFLAGS) -c $< -o $@
-	$(CC) $(CFLAGS) -I/usr/include -Imlx_linux -O3 -c $< -o $@
+ifeq ($(shell uname), Linux)
+	INCLUDES = -I/usr/include -Imlx
+else
+	INCLUDES = -I/opt/X11/include -Imlx
+endif
+ 
+MLX_DIR = ./mlx
+MLX_LIB = $(MLX_DIR)/libmlx_$(UNAME).a
 
-all: $(NAME) $(CHECK)
-
+ifeq ($(shell uname), Linux)
+	MLX_FLAGS = -Lmlx -lmlx -L/usr/lib/X11 -lXext -lX11
+else
+	MLX_FLAGS = -Lmlx -lmlx -L/usr/X11/lib -lXext -lX11 -framework OpenGL -framework AppKit
+endif
+ 
+all: $(MLX_LIB) $(NAME)
+ 
+.c.o:
+	$(CC) $(CFLAGS) -c -o $@ $< $(INCLUDES)
+ 
 $(NAME): $(OBJS)
-	@$(MAKE) -C ./libft
-	@$(MAKE) -C ./mlx_linux
-	@$(CC) $(CFLAGS) $(OBJS) ./libft/libft.a -o $(NAME)
-	@$(CC) $(CFLAGS) $(OBJS) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(MLX_FLAGS)
+ 
+$(MLX_LIB):
+	@make -C $(MLX_DIR)
 
 clean:
 	@$(RM) $(OBJS)
-	@$(MAKE) -C ./libft fclean
-	@$(MAKE) -C ./mlx_linux fclean
+	@$(MAKE) -C $(MLX_DIR) clean
 
 fclean: clean 
-	@$(RM) $(NAME) 
+	@$(RM) $(NAME)
+	@$(RM) $(MLX_LIB)
 
 re: fclean all
 
