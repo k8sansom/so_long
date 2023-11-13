@@ -6,7 +6,7 @@
 #    By: ksansom <ksansom@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/08 16:07:51 by ksansom           #+#    #+#              #
-#    Updated: 2023/11/08 16:09:15 by ksansom          ###   ########.fr        #
+#    Updated: 2023/11/13 10:32:09 by ksansom          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME = so_long
 SRCS = $(wildcard src/*.c)
 OBJS = $(SRCS:.c=.o)
 
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 RM = rm -rf
