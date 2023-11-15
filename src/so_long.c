@@ -6,7 +6,7 @@
 /*   By: ksansom <ksansom@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 15:48:40 by ksansom           #+#    #+#             */
-/*   Updated: 2023/11/15 14:34:38 by ksansom          ###   ########.fr       */
+/*   Updated: 2023/11/15 16:15:30 by ksansom          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,10 @@
 // 	return (0);
 // }
 
-int	main(void)
+int	main(int ac, char **av)
 {
-	t_data	game;
+	t_game	*game;
+	t_img	*images;
 
 	game.mlx_ptr = mlx_init ();
 	if (game.mlx_ptr == NULL)
