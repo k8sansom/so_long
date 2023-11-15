@@ -6,7 +6,7 @@
 /*   By: ksansom <ksansom@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 15:48:40 by ksansom           #+#    #+#             */
-/*   Updated: 2023/11/15 14:10:18 by ksansom          ###   ########.fr       */
+/*   Updated: 2023/11/15 14:34:38 by ksansom          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int	main(void)
 		mlx_destroy_display(game.mlx_ptr);
 		return (free(game.mlx_ptr), 1);
 	}
+	mlx_loop(game.mlx_ptr);
 	game.textures = mlx_xpm_file_to_image(game.mlx_ptr, BG_IMG, (int *)400, \
 		(int *)400);
 	mlx_put_image_to_window(game.mlx_ptr, game.win_ptr, game.textures, 2, 2);
@@ -51,7 +52,7 @@ int	main(void)
 	// 	StructureNotifyMask, 
 	// 	&on_destroy, 
 	// 	&game);
-	mlx_loop(game.mlx_ptr);
+	
 	free(game.mlx_ptr);
 	return (0);
 }
