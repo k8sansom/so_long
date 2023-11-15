@@ -6,7 +6,7 @@
 /*   By: ksansom <ksansom@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 15:48:40 by ksansom           #+#    #+#             */
-/*   Updated: 2023/11/15 13:34:51 by ksansom          ###   ########.fr       */
+/*   Updated: 2023/11/15 14:10:18 by ksansom          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,24 +30,28 @@
 
 int	main(void)
 {
-	t_data	data;
+	t_data	game;
 
-	data.mlx_ptr = mlx_init();
-	if (data.mlx_ptr == NULL)
+	game.mlx_ptr = mlx_init ();
+	if (game.mlx_ptr == NULL)
 		return (1);
-	data.win_ptr = mlx_new_window(data.mlx_ptr, WIDTH, HEIGHT, "new window :)");
-	if (!data.win_ptr)
-		return (free(data.mlx_ptr), 1);
-	data.textures = mlx_xpm_file_to_image(data.mlx_ptr, BG_IMG, \
-		(int *)WIDTH, (int *)HEIGHT);
-	mlx_put_image_to_window(data.mlx_ptr, data.win_ptr, data.textures, 1, 1);
-	// mlx_hook (data.win_ptr, KeyRelease, KeyReleaseMask, &on_keypress, &data);
+	game.win_ptr = mlx_new_window(game.mlx_ptr, WIDTH, HEIGHT, "new window :)");
+	if (game.win_ptr == NULL)
+	{
+		mlx_destroy_display(game.mlx_ptr);
+		return (free(game.mlx_ptr), 1);
+	}
+	game.textures = mlx_xpm_file_to_image(game.mlx_ptr, BG_IMG, (int *)400, \
+		(int *)400);
+	mlx_put_image_to_window(game.mlx_ptr, game.win_ptr, game.textures, 2, 2);
+	// // mlx_hook (game.win_ptr, KeyRelease, KeyReleaseMask, &on_keypress, &data);
 	// mlx_hook (
-	// 	data.win_ptr, 
+	// 	game.win_ptr, 
 	// 	DestroyNotify, 
 	// 	StructureNotifyMask, 
 	// 	&on_destroy, 
-	// 	&data);
-	mlx_loop(data.mlx_ptr);
+	// 	&game);
+	mlx_loop(game.mlx_ptr);
+	free(game.mlx_ptr);
 	return (0);
 }

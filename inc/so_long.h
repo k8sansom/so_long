@@ -6,7 +6,7 @@
 /*   By: ksansom <ksansom@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 15:52:21 by ksansom           #+#    #+#             */
-/*   Updated: 2023/11/15 13:14:55 by ksansom          ###   ########.fr       */
+/*   Updated: 2023/11/15 14:23:24 by ksansom          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdlib.h>
 # include <X11/X.h>
 # include <X11/keysym.h>
+# include <math.h>
 
 # define HEIGHT 810
 # define WIDTH 810
