@@ -6,7 +6,7 @@
 /*   By: ksansom <ksansom@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 15:52:21 by ksansom           #+#    #+#             */
-/*   Updated: 2023/11/15 11:57:17 by ksansom          ###   ########.fr       */
+/*   Updated: 2023/11/15 13:14:55 by ksansom          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,15 @@
 # include <X11/X.h>
 # include <X11/keysym.h>
 
-# define HEIGHT 500
-# define WIDTH 800
+# define HEIGHT 810
+# define WIDTH 810
 # define BG_IMG "../assets/Beach_overworld.xpm"
 
 typedef struct s_data
 {
 	void		*mlx_ptr;
 	void		*win_ptr;
-	void		*textures[5];
+	void		*textures;
 	//t_map		*map; 
 }	t_data;
 
