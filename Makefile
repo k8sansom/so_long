@@ -12,7 +12,7 @@
 
 NAME = so_long
 
-SRCS = src/so_long.c
+SRCS = src/so_long.c src/map.c 
 OBJS = $(SRCS:.c=.o)
 
 CC = cc
@@ -41,6 +41,7 @@ all: $(MLX_LIB) $(NAME)
 	$(CC) $(CFLAGS) -c -o $@ $< $(INCLUDES)
  
 $(NAME): $(OBJS)
+	@$(MAKE) -C ./libft
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(MLX_FLAGS)
  
 $(MLX_LIB):
@@ -49,6 +50,7 @@ $(MLX_LIB):
 clean:
 	@$(RM) $(OBJS)
 	@$(MAKE) -C $(MLX_DIR) clean
+	@$(MAKE) -C ./libft fclean
 
 fclean: clean 
 	@$(RM) $(NAME)

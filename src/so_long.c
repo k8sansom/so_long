@@ -12,27 +12,19 @@
 
 #include "../inc/so_long.h"
 
-// int	on_destroy(t_data *data)
-// {
-// 	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
-// 	mlx_destroy_display(data->mlx_ptr);
-// 	free(data->mlx_ptr);
-// 	exit(0);
-// 	return (0);
-// }
-
-// int	on_keypress(int keysym, t_data *data)
-// {
-// 	(void)data;
-// 	ft_printf("Pressed key: %d\\n", keysym);
-// 	return (0);
-// }
-
 int	main(int ac, char **av)
 {
-	t_game	*game;
-	t_img	*images;
+	t_struct	*game;
 
+	if (ac != 2)
+	{
+		perror ("Please provide a map name");
+		exit (STDERR_FILENO);
+	}
+	//safely initialize all the pointers in the struct to NULL
+	ft_memset(&game, 0, sizeof(t_struct));
+	//read map
+	ft_read_map(&game, av[1]);
 	game.mlx_ptr = mlx_init ();
 	if (game.mlx_ptr == NULL)
 		return (1);

@@ -17,8 +17,8 @@
 # include "../libft/inc/libft.h"
 # include <stdio.h>
 # include <stdlib.h>
-# include <X11/X.h>
-# include <X11/keysym.h>
+# include "../mlx/mlx.h"
+# include "../mlx/mlx_int.h"
 # include <math.h>
 # include <fcntl.h>
 
@@ -27,12 +27,31 @@
 # define WIDTH 810
 # define BG_IMG "../assets/Beach_overworld.xpm"
 
-typedef struct s_game
+typedef struct s_struct
 {
-	void		*mlx_ptr;
-	void		*win_ptr;
-	void		*textures;
-	//t_map		*map; 
-}	t_game;
+	int		fd;
+	int		height;
+	int		width;
+	int		players;
+	int		columns;
+	int		exit;
+	int		x_axis;
+	int		y_axis;
+	int		counter;
+	int		collectables;
+	char	**map;
+	void	*ground;
+	void	*wall;
+	void	*player;
+	void	*exit;
+	void	*collectable;
+	void	*mlx_ptr;
+	void	*win_ptr;
+}	t_struct;
 
+//map
+void	ft_read_map(t_struct *game, char *s);
+
+//utils
+void	ft_free (char *arr);
 #endif
