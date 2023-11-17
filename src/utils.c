@@ -1,8 +1,8 @@
 #include "../inc/so_long.h"
 
-void	ft_error (char *s)
+void	ft_error (char *s, t_struct *game)
 {
-
+	
 }
 
 void	ft_free (char *arr)

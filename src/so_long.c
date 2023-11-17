@@ -14,38 +14,24 @@
 
 int	main(int ac, char **av)
 {
-	t_struct	*game;
+	t_struct	game;
 
 	if (ac != 2)
-	{
-		perror ("Please provide a map name");
-		exit (STDERR_FILENO);
-	}
+		ft_error ("Please provide a map name", 0);
 	//safely initialize all the pointers in the struct to NULL
-	ft_memset(&game, 0, sizeof(t_struct));
+	ft_memset (&game, 0, sizeof(t_struct));
 	//read map
-	ft_read_map(&game, av[1]);
+	ft_read_map (&game, av[1]);
+	ft_error_check (&game);
 	game.mlx_ptr = mlx_init ();
 	if (game.mlx_ptr == NULL)
-		return (1);
-	game.win_ptr = mlx_new_window(game.mlx_ptr, WIDTH, HEIGHT, "new window :)");
+		ft_error ("Error initializing mlx", &game);
+	game.win_ptr = mlx_new_window(game.mlx_ptr, (game.width * 40), (game.height * 40), "So Long");
 	if (game.win_ptr == NULL)
-	{
-		mlx_destroy_display(game.mlx_ptr);
-		return (free(game.mlx_ptr), 1);
-	}
+		ft_error ("Error initializing window", &game);
+	ft_set_images (&game);
+	ft_set_graphics (&game);
+	mlx_key_hook(game.win_ptr, controls_working, &game);
+	mlx_hook(game.win_ptr, 17, 0, (void *)exit, 0);
 	mlx_loop(game.mlx_ptr);
-	game.textures = mlx_xpm_file_to_image(game.mlx_ptr, BG_IMG, (int *)400, \
-		(int *)400);
-	mlx_put_image_to_window(game.mlx_ptr, game.win_ptr, game.textures, 2, 2);
-	// // mlx_hook (game.win_ptr, KeyRelease, KeyReleaseMask, &on_keypress, &data);
-	// mlx_hook (
-	// 	game.win_ptr, 
-	// 	DestroyNotify, 
-	// 	StructureNotifyMask, 
-	// 	&on_destroy, 
-	// 	&game);
-	
-	free(game.mlx_ptr);
-	return (0);
 }

@@ -1,5 +1,17 @@
 #include "../inc/so_long.h"
 
+static int	ft_get_width(char *str)
+{
+	int	width;
+
+	width = 0;
+	while (str[width])
+		width++;
+	if (str[width - 1] == '\n')
+		--width;
+	return (width);
+}
+
 static int	ft_adding_rows(t_struct *game, char *row)
 {
 	char	**temp;
