@@ -20,12 +20,12 @@ static int	ft_adding_rows(t_struct *game, char *row)
 	i = 0;
 	if (!row)
 		return (1);
-	game->height++;
-	temp = (char **)malloc (sizeof(char *) * (game->height + 1));
+	game->mapheight++;
+	temp = (char **)malloc (sizeof(char *) * (game->mapheight + 1));
 	if (!temp)
-		ft_error ("Error allocating memory for map", &game);
-	temp[game->height] = NULL;
-	while (i < (game->height - 1))
+		ft_error ("Error: allocating memory for map", &game);
+	temp[game->mapheight] = NULL;
+	while (i < (game->mapheight - 1))
 	{
 		temp[i] = game->map[i];
 		i++;
@@ -43,7 +43,7 @@ void	ft_read_map(t_struct *game, char *s)
 
 	game->fd = open (s, O_RDONLY);
 	if (game->fd < 0)
-		ft_error ("Error reading map", &game);
+		ft_error ("Error: reading map", &game);
 	while (1)
 	{
 		mapping = get_next_line(game->fd);
@@ -51,5 +51,5 @@ void	ft_read_map(t_struct *game, char *s)
 			break ;
 	}
 	close (game->fd);
-	game->width = ft_get_width (game->map[0]);
+	game->mapwidth = ft_get_width (game->map[0]);
 }

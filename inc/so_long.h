@@ -30,15 +30,15 @@
 typedef struct s_struct
 {
 	int		fd;
-	int		height;
-	int		width;
-	int		players;
-	int		columns;
-	int		exit;
+	int		mapheight;
+	int		mapwidth;
+	int		playercount;
+	int		collectables;
+	int		exitcount;
 	int		x_axis;
 	int		y_axis;
 	int		counter;
-	int		collectables;
+	
 	char	**map;
 	void	*ground;
 	void	*wall;

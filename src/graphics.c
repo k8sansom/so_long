@@ -2,10 +2,21 @@
 
 int	ft_set_graphics(t_struct *game)
 {
-	
+	int	height;
+	int width;
+
+	height = 0;
+	while (height < game->mapheight)
+	{
+		width = 0;
+		while (game->map[height][width])
+		{
+			
+		}
+	}
 }
 
-int	ft_set_images(t_struct *game)
+void	ft_set_images(t_struct *game)
 {
 	int	x;
 	int	y;
