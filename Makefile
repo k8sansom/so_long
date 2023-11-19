@@ -34,27 +34,32 @@ ifeq ($(shell uname), Linux)
 else
 	MLX_FLAGS = -Lmlx -lmlx -L/usr/X11/lib -lXext -lX11 -framework OpenGL -framework AppKit
 endif
+
+LIBFT_DIR = ./libft
+LIBFT_LIB = $(LIBFT_DIR)/libft.a
  
-all: $(MLX_LIB) $(NAME)
+all: $(MLX_LIB) $(LIBFT_LIB) $(NAME)
  
 .c.o:
 	$(CC) $(CFLAGS) -c -o $@ $< $(INCLUDES)
  
 $(NAME): $(OBJS)
-	@$(MAKE) -C ./libft
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(MLX_FLAGS)
  
 $(MLX_LIB):
 	@make -C $(MLX_DIR)
+$(LIBFT_LIB):
+	@make -C $(LIBFT_DIR)
 
 clean:
 	@$(RM) $(OBJS)
 	@$(MAKE) -C $(MLX_DIR) clean
-	@$(MAKE) -C ./libft fclean
+	@$(MAKE) -C $(LIBFT_DIR) clean
 
 fclean: clean 
 	@$(RM) $(NAME)
 	@$(RM) $(MLX_LIB)
+	@$(RM) $(LIBFT_LIB)
 
 re: fclean all
 

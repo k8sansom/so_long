@@ -18,9 +18,8 @@ int	main(int ac, char **av)
 
 	if (ac != 2)
 		ft_error ("Please provide a map name", 0);
-	//safely initialize all the pointers in the struct to NULL
+	//safely initialize all the programs memory on the stack
 	ft_memset (&game, 0, sizeof(t_struct));
-	//read map
 	ft_read_map (&game, av[1]);
 	ft_error_check (&game);
 	game.mlx_ptr = mlx_init ();

@@ -1,11 +1,24 @@
 #include "../inc/so_long.h"
 
-void	ft_error (char *s, t_struct *game)
+void	ft_error(char *s, t_struct *game)
 {
-	
+	int	i;
+
+	i = 0;
+	if (game->winpointer)
+		mlx_destroy_window (game->mlxpointer, game->winpointer);
+	free (game->mlxpointer);
+	while (i < game->height - 1)
+	{
+		free (game->map[i]);
+		i++;
+	}
+	free (game->map);
+	perror (s);
+	exit (STDERR_FILENO);
 }
 
-void	ft_free (char *arr)
+void	ft_free(char *arr)
 {
 	int	i;
 
@@ -15,5 +28,5 @@ void	ft_free (char *arr)
 		free (arr[i]);
 		i++;
 	}
-	free(arr);
+	free (arr);
 }
