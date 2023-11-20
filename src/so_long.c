@@ -6,7 +6,7 @@
 /*   By: ksansom <ksansom@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 15:48:40 by ksansom           #+#    #+#             */
-/*   Updated: 2023/11/20 11:22:23 by ksansom          ###   ########.fr       */
+/*   Updated: 2023/11/20 16:16:53 by ksansom          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,10 @@ int	main(int ac, char **av)
 	t_struct	game;
 
 	if (ac != 2)
-		ft_exit ("Error: no map name", 0, game.exit_code++);
+	{
+		ft_printf("Error: no map name provided\n");
+		exit(STDERR_FILENO); 
+	}
 	//safely make space for program memory on the stack
 	ft_memset (&game, 0, sizeof(t_struct));
 	ft_read_map (&game, av[1]);

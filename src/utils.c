@@ -6,7 +6,7 @@
 /*   By: ksansom <ksansom@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 10:10:58 by ksansom           #+#    #+#             */
-/*   Updated: 2023/11/20 13:52:31 by ksansom          ###   ########.fr       */
+/*   Updated: 2023/11/20 16:11:46 by ksansom          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,15 +60,3 @@ int	ft_move(t_struct *game, int x, int y)
 	return (1);
 }
 
-void	ft_free(char **arr)
-{
-	int	i;
-
-	i = 0;
-	while (arr[i])
-	{
-		free (arr[i]);
-		i++;
-	}
-	free (arr);
-}

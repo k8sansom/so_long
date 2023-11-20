@@ -6,7 +6,7 @@
 /*   By: ksansom <ksansom@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 10:04:11 by ksansom           #+#    #+#             */
-/*   Updated: 2023/11/20 13:49:11 by ksansom          ###   ########.fr       */
+/*   Updated: 2023/11/20 16:11:38 by ksansom          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static int	ft_adding_rows(t_struct *game, char *row)
 	}
 	temp[i] = row;
 	if (game->map)
-		ft_free (game->map);
+		free (game->map);
 	game->map = temp;
 	return (0);
 }
