@@ -6,7 +6,7 @@
 /*   By: ksansom <ksansom@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 15:52:21 by ksansom           #+#    #+#             */
-/*   Updated: 2023/11/15 16:27:10 by ksansom          ###   ########.fr       */
+/*   Updated: 2023/11/20 11:26:20 by ksansom          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@
 # include <math.h>
 # include <fcntl.h>
 
-
 # define HEIGHT 810
 # define WIDTH 810
 # define BG_IMG "../assets/Beach_overworld.xpm"
@@ -30,15 +29,17 @@
 typedef struct s_struct
 {
 	int		fd;
-	int		mapheight;
-	int		mapwidth;
-	int		playercount;
-	int		collectables;
-	int		exitcount;
+	int		map_height;
+	int		map_width;
+	int		player_count;
+	int		collectable_count;
+	int		exit_count;
 	int		x_axis;
 	int		y_axis;
 	int		counter;
-	
+	int		coll_counter;
+	int		exit_code;
+
 	char	**map;
 	void	*ground;
 	void	*wall;
@@ -52,6 +53,18 @@ typedef struct s_struct
 //map
 void	ft_read_map(t_struct *game, char *s);
 
+//graphics
+void	ft_set_images(t_struct *game);
+void	ft_set_graphics(t_struct *game);
+
+//errors
+void	ft_error_check(t_struct *game);
+
 //utils
-void	ft_free (char *arr);
+void	ft_free(char *arr);
+void	ft_exit(char *s, t_struct *game, int exit_code);
+
+//controls
+int	ft_controls(int command, t_struct *game)
+
 #endif

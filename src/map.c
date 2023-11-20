@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   map.c                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ksansom <ksansom@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/20 10:04:11 by ksansom           #+#    #+#             */
+/*   Updated: 2023/11/20 11:22:43 by ksansom          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../inc/so_long.h"
 
 static int	ft_get_width(char *str)
@@ -20,12 +32,12 @@ static int	ft_adding_rows(t_struct *game, char *row)
 	i = 0;
 	if (!row)
 		return (1);
-	game->mapheight++;
-	temp = (char **)malloc (sizeof(char *) * (game->mapheight + 1));
+	game->map_height++;
+	temp = (char **)malloc (sizeof(char *) * (game->map_height + 1));
 	if (!temp)
-		ft_error ("Error: allocating memory for map", &game);
-	temp[game->mapheight] = NULL;
-	while (i < (game->mapheight - 1))
+		ft_exit ("Error: allocating memory for map", &game, game->exit_code++);
+	temp[game->map_height] = NULL;
+	while (i < (game->map_height - 1))
 	{
 		temp[i] = game->map[i];
 		i++;
@@ -39,11 +51,11 @@ static int	ft_adding_rows(t_struct *game, char *row)
 
 void	ft_read_map(t_struct *game, char *s)
 {
-	char *mapping;
+	char	*mapping;
 
 	game->fd = open (s, O_RDONLY);
 	if (game->fd < 0)
-		ft_error ("Error: reading map", &game);
+		ft_exit ("Error: reading map", &game, game->exit_code++);
 	while (1)
 	{
 		mapping = get_next_line(game->fd);
@@ -51,5 +63,5 @@ void	ft_read_map(t_struct *game, char *s)
 			break ;
 	}
 	close (game->fd);
-	game->mapwidth = ft_get_width (game->map[0]);
+	game->map_width = ft_get_width (game->map[0]);
 }

@@ -6,13 +6,13 @@
 #    By: ksansom <ksansom@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/08 16:07:51 by ksansom           #+#    #+#              #
-#    Updated: 2023/11/15 11:01:43 by ksansom          ###   ########.fr        #
+#    Updated: 2023/11/20 09:58:15 by ksansom          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 
-SRCS = src/so_long.c src/map.c 
+SRCS = src/so_long.c src/map.c src/errors.c src/graphics.c src/utils.c
 OBJS = $(SRCS:.c=.o)
 
 CC = cc
