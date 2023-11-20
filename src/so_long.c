@@ -22,12 +22,13 @@ int	main(int ac, char **av)
 		exit(STDERR_FILENO); 
 	}
 	//safely make space for program memory on the stack
-	ft_memset (&game, 0, sizeof(t_struct));
-	ft_read_map (&game, av[1]);
-	ft_error_check (&game);
+	ft_memset(&game, 0, sizeof(t_struct));
+	ft_read_map(&game, av[1]);
+	ft_error_check(&game);
+	ft_parse_path(&game);
 	game.mlx_ptr = mlx_init ();
 	if (game.mlx_ptr == NULL)
-		ft_exit ("Error: initializing mlx", &game, game.exit_code++);
+		ft_exit("Error: initializing mlx", &game, game.exit_code++);
 	game.win_ptr = mlx_new_window(game.mlx_ptr, \
 		(game.map_width * 40), (game.map_height * 40), "So Long");
 	if (game.win_ptr == NULL)

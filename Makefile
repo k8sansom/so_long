@@ -13,7 +13,7 @@
 NAME = so_long
 
 SRCS = ./src/so_long.c ./src/map.c ./src/errors.c ./src/graphics.c ./src/utils.c \
-	./src/controls.c
+	./src/controls.c ./src/path_check.c
 OBJS = $(SRCS:.c=.o)
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
