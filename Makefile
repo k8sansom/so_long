@@ -6,7 +6,7 @@
 #    By: ksansom <ksansom@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/08 16:07:51 by ksansom           #+#    #+#              #
-#    Updated: 2023/11/20 14:08:45 by ksansom          ###   ########.fr        #
+#    Updated: 2023/11/20 15:07:58 by ksansom          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,9 +22,9 @@ CFLAGS = -Wall -Wextra -Werror
 RM = rm -rf
 
 ifeq ($(shell uname), Linux)
-	INCLUDES = -I/usr/include -Imlx
+	MLX_FLAGS = -Lmlx -lmlx -L/usr/X11/lib -lXext -lX11 -L$(LIBFT_DIR) -lft
 else
-	INCLUDES = -I/opt/X11/include -Imlx
+	MLX_FLAGS = -Lmlx -lmlx -L/usr/X11/lib -lXext -lX11 -framework OpenGL -framework AppKit -L$(LIBFT_DIR) -lft
 endif
  
 MLX_DIR = ./mlx
@@ -60,7 +60,7 @@ clean:
 fclean: clean 
 	@$(RM) $(NAME)
 	@$(RM) $(MLX_LIB)
-	@$(RM) $(LIBFT_LIB)
+	@$(RM) $(LIBFT)
 
 re: fclean all
 

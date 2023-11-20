@@ -6,7 +6,7 @@
 #    By: ksansom <ksansom@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/19 11:51:45 by ksansom           #+#    #+#              #
-#    Updated: 2023/11/15 11:01:05 by ksansom          ###   ########.fr        #
+#    Updated: 2023/11/20 15:14:51 by ksansom          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,10 +33,10 @@ OBJS = $(SRCS:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	@$(LIB) libft.a $(OBJS)
+	@$(LIB) $(NAME) $(OBJS)
 	
 clean:
-	@$(RM) $(OBJS)
+	$(RM) $(OBJS)
 
 fclean: clean 
 	@$(RM) $(NAME)
