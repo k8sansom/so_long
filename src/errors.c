@@ -6,7 +6,7 @@
 /*   By: ksansom <ksansom@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 10:00:42 by ksansom           #+#    #+#             */
-/*   Updated: 2023/11/20 13:51:32 by ksansom          ###   ########.fr       */
+/*   Updated: 2023/11/20 16:31:02 by ksansom          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,32 +28,32 @@ static void	ft_checker(t_struct *game, int height, int width)
 
 static int	ft_horizontal(t_struct *game)
 {
-	int	width;
-	int	bottomwall;
+	int	x;
+	int	bottom_wall;
 
-	width = 0;
-	bottomwall = game->map_height - 1;
-	while (width < game->map_width)
+	x = 0;
+	bottom_wall = game->map_height - 1;
+	while (x < game->map_width)
 	{
-		if (game->map[0][width] != 1 || game->map[bottomwall][width] != 1)
+		if (game->map[0][x] != 1 || game->map[bottom_wall][x] != 1)
 			return (1);
-		width++;
+		x++;
 	}
 	return (0);
 }
 
 static int	ft_vertical(t_struct *game)
 {
-	int	height;
-	int	rightwall;
+	int	right_wall;
+	int	y;
 
-	height = 0;
-	rightwall = game->map_width - 1;
-	while (height < game->map_height)
+	y = 0;
+	right_wall = game->map_width;
+	while (y < game->map_height)
 	{
-		if (game->map[height][0] != 1 || game->map[height][rightwall] != 1)
+		if (game->map[y][0] != 1 || game->map[y][right_wall] != 1)
 			return (1);
-		height++;
+		y++;
 	}
 	return (0);
 }
@@ -65,8 +65,8 @@ void	ft_error_check(t_struct *game)
 	int	height;
 	int	width;
 
-	vertical = ft_vertical (game);
-	horizontal = ft_horizontal (game);
+	vertical = ft_vertical(game);
+	horizontal = ft_horizontal(game);
 	if (vertical == 1 || horizontal == 1)
 		ft_exit ("Error: missing external walls!", game, game->exit_code++);
 	height = 0;

@@ -6,7 +6,7 @@
 /*   By: ksansom <ksansom@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 10:04:11 by ksansom           #+#    #+#             */
-/*   Updated: 2023/11/20 16:11:38 by ksansom          ###   ########.fr       */
+/*   Updated: 2023/11/20 16:33:37 by ksansom          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,5 @@ void	ft_read_map(t_struct *game, char *s)
 			break ;
 	}
 	close (game->fd);
-	game->map_width = ft_get_width (game->map[0]);
+	game->map_width = ft_get_width(game->map[0]);
 }

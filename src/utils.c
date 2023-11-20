@@ -6,7 +6,7 @@
 /*   By: ksansom <ksansom@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 10:10:58 by ksansom           #+#    #+#             */
-/*   Updated: 2023/11/20 16:11:46 by ksansom          ###   ########.fr       */
+/*   Updated: 2023/11/20 16:24:16 by ksansom          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,12 @@ void	ft_exit(char *s, t_struct *game, int exit_code)
 		close (game->fd);
 	while (i < game->map_height - 1)
 	{
-		free (game->map[i]);
+		free(game->map[i]);
 		i++;
 	}
 	free (game->map);
 	if (s)
-		perror (s);
+		ft_printf("%s\n", s);
 	exit (exit_code);
 }
 
