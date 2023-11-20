@@ -6,7 +6,7 @@
 /*   By: ksansom <ksansom@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 15:52:21 by ksansom           #+#    #+#             */
-/*   Updated: 2023/11/20 13:40:08 by ksansom          ###   ########.fr       */
+/*   Updated: 2023/11/20 13:40:57 by ksansom          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,5 @@ int		ft_move(t_struct *game, int x, int y);
 
 //controls
 int		ft_controls(int command, t_struct *game);
-
 
 #endif
