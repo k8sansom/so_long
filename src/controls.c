@@ -6,11 +6,51 @@
 /*   By: ksansom <ksansom@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 10:43:54 by ksansom           #+#    #+#             */
-/*   Updated: 2023/11/20 11:54:24 by ksansom          ###   ########.fr       */
+/*   Updated: 2023/11/20 13:29:48 by ksansom          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
+
+static int	ft_d(t_struct *game)
+{
+	int	x;
+	int	y;
+	int	move;
+
+	x = game->x_axis;
+	y = game->y_axis;
+	++x;
+	if (game->map[y][x] == '1')
+		return (0);
+	move = ft_move(game, x, y);
+	if (!move)
+		return (0);
+	game->map[y][x - 1] = '0';
+	ft_printf("Moves: %i, Collectables left: %i\n", game->move_counter, \
+		game->collectable_counter);
+	return (1);
+}
+
+static int	ft_a(t_struct *game)
+{
+	int	x;
+	int	y;
+	int	move;
+
+	x = game->x_axis;
+	y = game->y_axis;
+	--x;
+	if (game->map[y][x] == '1')
+		return (0);
+	move = ft_move(game, x, y);
+	if (!move)
+		return (0);
+	game->map[y][x + 1] = '0';
+	ft_printf("Moves: %i, Collectables left: %i\n", game->move_counter, \
+		game->collectable_counter);
+	return (1);
+}
 
 static int	ft_s(t_struct *game)
 {
@@ -27,8 +67,8 @@ static int	ft_s(t_struct *game)
 	if (!move)
 		return (0);
 	game->map[y - 1][x] = '0';
-	ft_printf("Moves: %i, Collectables left: %i\n", game->counter, \
-		game->coll_counter);
+	ft_printf("Moves: %i, Collectables left: %i\n", game->move_counter, \
+		game->collectable_counter);
 	return (1);
 }
 
@@ -47,8 +87,8 @@ static int	ft_w(t_struct *game)
 	if (!move)
 		return (0);
 	game->map[y + 1][x] = '0';
-	ft_printf("Moves: %i, Collectables left: %i\n", game->counter, \
-		game->coll_counter);
+	ft_printf("Moves: %i, Collectables left: %i\n", game->move_counter, \
+		game->collectable_counter);
 	return (1);
 }
 

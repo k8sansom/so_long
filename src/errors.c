@@ -6,7 +6,7 @@
 /*   By: ksansom <ksansom@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 10:00:42 by ksansom           #+#    #+#             */
-/*   Updated: 2023/11/20 11:23:12 by ksansom          ###   ########.fr       */
+/*   Updated: 2023/11/20 13:35:50 by ksansom          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ static void	ft_checker(t_struct *game, int height, int width)
 		&& game->map[height][width] != 'P')
 		ft_exit ("Error: unknown character in map", &game, game->exit_code++);
 	if (game->map[height][width] == 'C')
-		game->collectable_count++;
+		game->collectable_counter++;
 	if (game->map[height][width] == 'P')
-		game->player_count++;
+		game->player_counter++;
 	if (game->map[height][width] == 'E')
-		game->exit_count++;
+		game->exit_counter++;
 }
 
 static int	ft_horizontal(t_struct *game)
@@ -80,8 +80,8 @@ void	ft_error_check(t_struct *game)
 		}
 		height++;
 	}
-	if (game->player_count != 1 || game->collectable_count < 1 \
-		|| game->exit_count != 1)
-		ft_exit ("Error: Something is wrong with player, \
-			exit or collectable", &game, game->exit_code++);
+	if (game->player_counter != 1 || game->collectable_counter < 1 \
+		|| game->exit_counter != 1)
+		ft_exit ("Error: Something is wrong with player, exit or collectable", \
+			&game, game->exit_code++);
 }

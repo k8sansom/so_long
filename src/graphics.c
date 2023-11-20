@@ -6,7 +6,7 @@
 /*   By: ksansom <ksansom@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 10:02:40 by ksansom           #+#    #+#             */
-/*   Updated: 2023/11/20 10:42:28 by ksansom          ###   ########.fr       */
+/*   Updated: 2023/11/20 13:33:29 by ksansom          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,9 @@ static void	ft_place_graphics(t_struct *game, int height, int width, int c)
 		game->x_axis = width;
 	}
 	if (c == 'C')
-	{
 		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, \
 			game->collectable, (width * 40), (height * 40));
-		game->coll_counter++;
-	}
+
 }
 
 void	ft_set_graphics(t_struct *game)

@@ -6,7 +6,7 @@
 /*   By: ksansom <ksansom@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 15:52:21 by ksansom           #+#    #+#             */
-/*   Updated: 2023/11/20 11:26:20 by ksansom          ###   ########.fr       */
+/*   Updated: 2023/11/20 13:40:08 by ksansom          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,22 +22,17 @@
 # include <math.h>
 # include <fcntl.h>
 
-# define HEIGHT 810
-# define WIDTH 810
-# define BG_IMG "../assets/Beach_overworld.xpm"
-
 typedef struct s_struct
 {
 	int		fd;
 	int		map_height;
 	int		map_width;
-	int		player_count;
-	int		collectable_count;
-	int		exit_count;
+	int		player_counter;
+	int		collectable_counter;
+	int		move_counter;
+	int		exit_counter;
 	int		x_axis;
 	int		y_axis;
-	int		counter;
-	int		coll_counter;
 	int		exit_code;
 
 	char	**map;
@@ -63,8 +58,10 @@ void	ft_error_check(t_struct *game);
 //utils
 void	ft_free(char *arr);
 void	ft_exit(char *s, t_struct *game, int exit_code);
+int		ft_move(t_struct *game, int x, int y);
 
 //controls
-int	ft_controls(int command, t_struct *game)
+int		ft_controls(int command, t_struct *game);
+
 
 #endif
