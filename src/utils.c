@@ -6,7 +6,7 @@
 /*   By: ksansom <ksansom@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 10:10:58 by ksansom           #+#    #+#             */
-/*   Updated: 2023/11/20 13:27:34 by ksansom          ###   ########.fr       */
+/*   Updated: 2023/11/20 13:52:31 by ksansom          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	ft_move(t_struct *game, int x, int y)
 	}
 	if (game->map[y][x] == '0')
 	{
-		game->map[y][x] == 'P';
+		game->map[y][x] = 'P';
 		game->x_axis = x;
 		game->y_axis = y;
 		game->move_counter++;
@@ -60,7 +60,7 @@ int	ft_move(t_struct *game, int x, int y)
 	return (1);
 }
 
-void	ft_free(char *arr)
+void	ft_free(char **arr)
 {
 	int	i;
 

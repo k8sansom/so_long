@@ -6,7 +6,7 @@
 /*   By: ksansom <ksansom@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 10:04:11 by ksansom           #+#    #+#             */
-/*   Updated: 2023/11/20 11:22:43 by ksansom          ###   ########.fr       */
+/*   Updated: 2023/11/20 13:49:11 by ksansom          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static int	ft_adding_rows(t_struct *game, char *row)
 	game->map_height++;
 	temp = (char **)malloc (sizeof(char *) * (game->map_height + 1));
 	if (!temp)
-		ft_exit ("Error: allocating memory for map", &game, game->exit_code++);
+		ft_exit ("Error: allocating memory for map", game, game->exit_code++);
 	temp[game->map_height] = NULL;
 	while (i < (game->map_height - 1))
 	{
@@ -55,7 +55,7 @@ void	ft_read_map(t_struct *game, char *s)
 
 	game->fd = open (s, O_RDONLY);
 	if (game->fd < 0)
-		ft_exit ("Error: reading map", &game, game->exit_code++);
+		ft_exit ("Error: reading map", game, game->exit_code++);
 	while (1)
 	{
 		mapping = get_next_line(game->fd);

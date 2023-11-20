@@ -6,7 +6,7 @@
 /*   By: ksansom <ksansom@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 10:02:40 by ksansom           #+#    #+#             */
-/*   Updated: 2023/11/20 13:33:29 by ksansom          ###   ########.fr       */
+/*   Updated: 2023/11/20 13:52:06 by ksansom          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,9 @@ void	ft_set_graphics(t_struct *game)
 			if (game->map[height][width] == 'E')
 				ft_place_graphics (game, height, width, 'E');
 			if (game->map[height][width] == 'P')
-				ft_place_graphic (game, height, width, 'P');
+				ft_place_graphics (game, height, width, 'P');
 			if (game->map[height][width] == 'C')
-				ft_place_graphic (game, height, width, 'C');
+				ft_place_graphics (game, height, width, 'C');
 			width++;
 		}
 		height++;

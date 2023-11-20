@@ -6,7 +6,7 @@
 /*   By: ksansom <ksansom@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 10:00:42 by ksansom           #+#    #+#             */
-/*   Updated: 2023/11/20 13:35:50 by ksansom          ###   ########.fr       */
+/*   Updated: 2023/11/20 13:51:32 by ksansom          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	ft_checker(t_struct *game, int height, int width)
 	if (game->map[height][width] != '0' && game->map[height][width] != '1'\
 		&& game->map[height][width] != 'C' && game->map[height][width] != 'E'\
 		&& game->map[height][width] != 'P')
-		ft_exit ("Error: unknown character in map", &game, game->exit_code++);
+		ft_exit ("Error: unknown character in map", game, game->exit_code++);
 	if (game->map[height][width] == 'C')
 		game->collectable_counter++;
 	if (game->map[height][width] == 'P')
@@ -66,9 +66,9 @@ void	ft_error_check(t_struct *game)
 	int	width;
 
 	vertical = ft_vertical (game);
-	horizontal = ft_horizonal (game);
+	horizontal = ft_horizontal (game);
 	if (vertical == 1 || horizontal == 1)
-		ft_exit ("Error: missing external walls!", &game, game->exit_code++);
+		ft_exit ("Error: missing external walls!", game, game->exit_code++);
 	height = 0;
 	while (height < game->map_height - 1)
 	{
@@ -83,5 +83,5 @@ void	ft_error_check(t_struct *game)
 	if (game->player_counter != 1 || game->collectable_counter < 1 \
 		|| game->exit_counter != 1)
 		ft_exit ("Error: Something is wrong with player, exit or collectable", \
-			&game, game->exit_code++);
+			game, game->exit_code++);
 }

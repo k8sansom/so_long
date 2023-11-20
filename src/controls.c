@@ -6,7 +6,7 @@
 /*   By: ksansom <ksansom@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 10:43:54 by ksansom           #+#    #+#             */
-/*   Updated: 2023/11/20 13:29:48 by ksansom          ###   ########.fr       */
+/*   Updated: 2023/11/20 14:46:38 by ksansom          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,16 +97,16 @@ int	ft_controls(int command, t_struct *game)
 	int	move;
 
 	if (command == 53)
-		ft_exit ("", &game, 0);
+		ft_exit ("", game, 0);
 	if (command == 13)
-		move = ft_w(&game);
+		move = ft_w(game);
 	if (command == 1)
-		move = ft_s(&game);
+		move = ft_s(game);
 	if (command == 0)
-		move = ft_a(&game);
+		move = ft_a(game);
 	if (command == 2)
-		move = ft_d(&game);
+		move = ft_d(game);
 	if (move)
-		ft_set_graphics(&game);
+		ft_set_graphics(game);
 	return (0);
 }

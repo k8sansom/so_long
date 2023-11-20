@@ -6,7 +6,7 @@
 /*   By: ksansom <ksansom@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 15:52:21 by ksansom           #+#    #+#             */
-/*   Updated: 2023/11/20 13:40:57 by ksansom          ###   ########.fr       */
+/*   Updated: 2023/11/20 13:44:40 by ksansom          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	ft_set_graphics(t_struct *game);
 void	ft_error_check(t_struct *game);
 
 //utils
-void	ft_free(char *arr);
+void	ft_free(char **arr);
 void	ft_exit(char *s, t_struct *game, int exit_code);
 int		ft_move(t_struct *game, int x, int y);
 
