@@ -44,7 +44,7 @@ static int	ft_adding_rows(t_struct *game, char *row)
 	}
 	temp[i] = row;
 	if (game->map)
-		free(game->map);
+		ft_free(game->map);
 	game->map = temp;
 	return (0);
 }

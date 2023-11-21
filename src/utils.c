@@ -60,3 +60,15 @@ int	ft_move(t_struct *game, int x, int y)
 	return (1);
 }
 
+void	ft_free(char **arr, int n)
+{
+	int	i;
+
+	i = 0;
+	while (i < n)
+	{
+		free(arr[i]);
+		i++;
+	}
+	free(arr);
+}
