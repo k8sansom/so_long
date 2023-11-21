@@ -1,18 +1,26 @@
 #include "../inc/so_long.h"
 
-void	ft_flood_fill(t_struct *temp, int y_axis, int x_axis)
+int	ft_flood_fill(t_struct *temp, int y_axis, int x_axis)
 {
 	if (temp->map[y][x] == '1')
-		return ;
+		return (0);
 	if (temp->map[y][x] == 'C')
 		temp->collectable_counter--;
 	if (temp->map[y][x] == 'E')
+	{
 		temp->exit_counter++;
+		return (0);
+	}
 	temp->map[y][x] == '1';
-	ft_flood_fill(temp, y_axis + 1, x_axis);
-	ft_flood_fill(temp, y_axis - 1, x_axis);
-	ft_flood_fill(temp, y_axis, x_axis + 1);
-	ft_flood_fill(temp, y_axis, x_axis - 1);
+	if (ft_flood_fill(temp, y_axis + 1, x_axis))
+		return (1);
+	if (ft_flood_fill(temp, y_axis - 1, x_axis))
+		return (1);
+	if (ft_flood_fill(temp, y_axis, x_axis + 1))
+		return (1);
+	if (ft_flood_fill(temp, y_axis, x_axis - 1))
+		return (1);
+	return (0);
 }
 
 void ft_parse_path(t_struct *game)
