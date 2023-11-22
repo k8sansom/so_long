@@ -6,7 +6,7 @@
 /*   By: ksansom <ksansom@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 15:52:21 by ksansom           #+#    #+#             */
-/*   Updated: 2023/11/22 12:57:23 by ksansom          ###   ########.fr       */
+/*   Updated: 2023/11/22 15:07:34 by ksansom          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 # include "../mlx/mlx_int.h"
 # include <math.h>
 # include <fcntl.h>
+
+# define SPRITE_SIZE	32
 
 typedef struct s_struct
 {

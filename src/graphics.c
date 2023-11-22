@@ -6,7 +6,7 @@
 /*   By: ksansom <ksansom@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 10:02:40 by ksansom           #+#    #+#             */
-/*   Updated: 2023/11/22 14:09:40 by ksansom          ###   ########.fr       */
+/*   Updated: 2023/11/22 14:32:14 by ksansom          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,19 @@ static void	ft_place_graphics(t_struct *game, int height, int width, int c)
 {
 	if (c == '0')
 		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, \
-			game->ground, (width * 40), (height * 40));
+			game->ground, width, height);
 	if (c == '1')
 		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, \
-			game->wall, (width * 40), (height * 40));
+			game->wall, width, height);
 	if (game->map[height][width] == 'E')
 		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, \
-			game->exit, (width * 40), (height * 40));
+			game->exit, width, height);
 	if (c == 'P')
-	{
 		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, \
-			game->player, (width * 40), (height * 40));
-		game->y_axis = height;
-		game->x_axis = width;
-	}
+			game->player, width, height);
 	if (c == 'C')
 		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, \
-			game->collectable, (width * 40), (height * 40));
-
+			game->collectable, width, height);
 }
 
 void	ft_set_graphics(t_struct *game)

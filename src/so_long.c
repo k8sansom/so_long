@@ -6,7 +6,7 @@
 /*   By: ksansom <ksansom@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 15:48:40 by ksansom           #+#    #+#             */
-/*   Updated: 2023/11/22 14:16:37 by ksansom          ###   ########.fr       */
+/*   Updated: 2023/11/22 15:34:42 by ksansom          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,12 @@ int	main(int ac, char **av)
 	ft_read_map(&game, av[1]);
 	ft_error_check(&game);
 	ft_parse_path(&game);
-	game.mlx_ptr = mlx_init ();
+	game.mlx_ptr = mlx_init();
 	if (game.mlx_ptr == NULL)
 		ft_exit("Error: initializing mlx", &game, game.exit_code++);
 	game.win_ptr = mlx_new_window(game.mlx_ptr, \
-		(game.map_width * 40), (game.map_height * 40), "So Long");
+		(game.map_width * SPRITE_SIZE), (game.map_height * SPRITE_SIZE), \
+		"So Long");
 	if (game.win_ptr == NULL)
 		ft_exit ("Error: initializing window", &game, game.exit_code++);
 	ft_set_images(&game);

@@ -6,7 +6,7 @@
 /*   By: ksansom <ksansom@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 10:01:49 by ksansom           #+#    #+#             */
-/*   Updated: 2023/11/22 14:27:19 by ksansom          ###   ########.fr       */
+/*   Updated: 2023/11/22 15:43:24 by ksansom          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	ft_flood_fill(t_struct *temp, int y, int x)
 		temp->collectable_counter--;
 	if (temp->map[y][x] == 'E')
 	{
-		temp->exit_counter++;
+		temp->exit_counter = 1;
 		return ;
 	}
 	temp->map[y][x] = '1';
