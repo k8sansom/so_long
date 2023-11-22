@@ -48,7 +48,7 @@ static int	ft_vertical(t_struct *game)
 	int	y;
 
 	y = 0;
-	right_wall = game->map_width;
+	right_wall = game->map_width - 1;
 	while (y < game->map_height)
 	{
 		if (game->map[y][0] != 1 || game->map[y][right_wall] != 1)
