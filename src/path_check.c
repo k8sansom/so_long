@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   path_check.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ksansom <ksansom@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/22 10:01:49 by ksansom           #+#    #+#             */
+/*   Updated: 2023/11/22 10:03:20 by ksansom          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../inc/so_long.h"
 
-int	ft_flood_fill(t_struct *temp, int y_axis, int x_axis)
+int	ft_flood_fill(t_struct *temp, int y, int x)
 {
 	if (temp->map[y][x] == '1')
 		return (0);
@@ -12,18 +24,18 @@ int	ft_flood_fill(t_struct *temp, int y_axis, int x_axis)
 		return (0);
 	}
 	temp->map[y][x] == '1';
-	if (ft_flood_fill(temp, y_axis + 1, x_axis))
+	if (ft_flood_fill(temp, y + 1, x))
 		return (1);
-	if (ft_flood_fill(temp, y_axis - 1, x_axis))
+	if (ft_flood_fill(temp, y - 1, x))
 		return (1);
-	if (ft_flood_fill(temp, y_axis, x_axis + 1))
+	if (ft_flood_fill(temp, y, x + 1))
 		return (1);
-	if (ft_flood_fill(temp, y_axis, x_axis - 1))
+	if (ft_flood_fill(temp, y, x - 1))
 		return (1);
 	return (0);
 }
 
-void ft_parse_path(t_struct *game)
+void	ft_parse_path(t_struct *game)
 {
 	t_struct	temp;
 	int			i;

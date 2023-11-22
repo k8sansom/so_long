@@ -6,7 +6,7 @@
 /*   By: ksansom <ksansom@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 10:10:58 by ksansom           #+#    #+#             */
-/*   Updated: 2023/11/20 16:24:16 by ksansom          ###   ########.fr       */
+/*   Updated: 2023/11/22 10:00:04 by ksansom          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	ft_free(char **arr, int n)
 	int	i;
 
 	i = 0;
-	while (i < n)
+	while (i < n || arr[i])
 	{
 		free(arr[i]);
 		i++;
