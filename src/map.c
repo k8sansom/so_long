@@ -31,7 +31,7 @@ static int	ft_adding_rows(t_struct *game, char *row)
 
 	i = 0;
 	if (!row)
-		return (1);
+		return (0);
 	game->map_height++;
 	temp = (char **)malloc(sizeof(char *) * (game->map_height + 1));
 	if (!temp)
@@ -44,22 +44,22 @@ static int	ft_adding_rows(t_struct *game, char *row)
 	}
 	temp[i] = row;
 	if (game->map)
-		ft_free(game->map);
+		ft_free(game->map, game->map_height - 1);
 	game->map = temp;
-	return (0);
+	return (1);
 }
 
 void	ft_read_map(t_struct *game, char *s)
 {
-	char	*mapping;
+	char	*row;
 
 	game->fd = open(s, O_RDONLY);
 	if (game->fd < 0)
-		ft_exit ("Error: reading map", game, game->exit_code++);
+		ft_exit("Error: reading map", game, game->exit_code++);
 	while (1)
 	{
-		mapping = get_next_line(game->fd);
-		if (ft_adding_rows(game, mapping) == 1)
+		row = get_next_line(game->fd);
+		if (!ft_adding_rows(game, row))
 			break ;
 	}
 	close(game->fd);
