@@ -6,7 +6,7 @@
 /*   By: ksansom <ksansom@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 10:02:40 by ksansom           #+#    #+#             */
-/*   Updated: 2023/11/22 14:32:14 by ksansom          ###   ########.fr       */
+/*   Updated: 2023/11/22 16:00:32 by ksansom          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,28 +33,28 @@ static void	ft_place_graphics(t_struct *game, int height, int width, int c)
 
 void	ft_set_graphics(t_struct *game)
 {
-	int	height;
-	int	width;
+	int	y;
+	int	x;
 
-	height = 0;
-	while (height < game->map_height)
+	y = 0;
+	while (y < game->map_height * IMG_H)
 	{
-		width = 0;
-		while (width < game->map_width)
+		x = 0;
+		while (x < game->map_width * IMG_W)
 		{
-			if (game->map[height][width] == '0')
-				ft_place_graphics (game, height, width, '0');
-			if (game->map[height][width] == '1')
-				ft_place_graphics (game, height, width, '1');
-			if (game->map[height][width] == 'E')
-				ft_place_graphics (game, height, width, 'E');
-			if (game->map[height][width] == 'P')
-				ft_place_graphics (game, height, width, 'P');
-			if (game->map[height][width] == 'C')
-				ft_place_graphics (game, height, width, 'C');
-			width++;
+			if (game->map[y][x] == '0')
+				ft_place_graphics (game, y, x, '0');
+			if (game->map[y][x] == '1')
+				ft_place_graphics (game, y, x, '1');
+			if (game->map[y][x] == 'E')
+				ft_place_graphics (game, y, x, 'E');
+			if (game->map[y][x] == 'P')
+				ft_place_graphics (game, y, x, 'P');
+			if (game->map[y][x] == 'C')
+				ft_place_graphics (game, y, x, 'C');
+			x += IMG_W;
 		}
-		height++;
+		y += IMG_H;
 	}
 }
 
