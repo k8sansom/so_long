@@ -6,7 +6,7 @@
 /*   By: ksansom <ksansom@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 10:04:11 by ksansom           #+#    #+#             */
-/*   Updated: 2023/11/20 16:33:37 by ksansom          ###   ########.fr       */
+/*   Updated: 2023/11/22 12:03:38 by ksansom          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,8 @@ static int	ft_get_width(char *str)
 	int	width;
 
 	width = 0;
-	while (str[width])
+	while (str[width] != '\n')
 		width++;
-	if (str[width - 1] == '\n')
-		--width;
 	return (width);
 }
 
@@ -44,7 +42,7 @@ static int	ft_adding_rows(t_struct *game, char *row)
 	}
 	temp[i] = row;
 	if (game->map)
-		ft_free(game->map, game->map_height - 1);
+		free(game->map);
 	game->map = temp;
 	return (1);
 }

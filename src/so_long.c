@@ -6,7 +6,7 @@
 /*   By: ksansom <ksansom@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 15:48:40 by ksansom           #+#    #+#             */
-/*   Updated: 2023/11/20 16:16:53 by ksansom          ###   ########.fr       */
+/*   Updated: 2023/11/22 12:04:42 by ksansom          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	main(int ac, char **av)
 	ft_memset(&game, 0, sizeof(t_struct));
 	ft_read_map(&game, av[1]);
 	ft_error_check(&game);
-	ft_parse_path(&game);
+	//ft_parse_path(&game);
 	game.mlx_ptr = mlx_init ();
 	if (game.mlx_ptr == NULL)
 		ft_exit("Error: initializing mlx", &game, game.exit_code++);
