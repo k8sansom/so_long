@@ -6,7 +6,7 @@
 /*   By: ksansom <ksansom@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 10:02:40 by ksansom           #+#    #+#             */
-/*   Updated: 2023/11/20 13:52:06 by ksansom          ###   ########.fr       */
+/*   Updated: 2023/11/22 14:09:40 by ksansom          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	ft_set_graphics(t_struct *game)
 	while (height < game->map_height)
 	{
 		width = 0;
-		while (game->map[height][width])
+		while (width < game->map_width)
 		{
 			if (game->map[height][width] == '0')
 				ft_place_graphics (game, height, width, '0');
@@ -69,13 +69,14 @@ void	ft_set_images(t_struct *game)
 	int	y;
 
 	game->ground = mlx_xpm_file_to_image(game->mlx_ptr, \
-		"assets/floor.rpm", &x, &y);
+		"./assets/floor.rpm", &x, &y);
 	game->wall = mlx_xpm_file_to_image(game->mlx_ptr, \
-		"assets/wall.rpm", &x, &y);
+		"./assets/wall.rpm", &x, &y);
 	game->player = mlx_xpm_file_to_image(game->mlx_ptr, \
-		"assets/Kate.rpm", &x, &y);
+		"./assets/Kate.rpm", &x, &y);
 	game->collectable = mlx_xpm_file_to_image(game->mlx_ptr, \
-		"assets/wine.rpm", &x, &y);
+		"./assets/wine.rpm", &x, &y);
 	game->exit = mlx_xpm_file_to_image(game->mlx_ptr, \
-		"assets/toilet.rpm", &x, &y);
+		"./assets/toilet.rpm", &x, &y);
+	
 }

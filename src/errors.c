@@ -6,7 +6,7 @@
 /*   By: ksansom <ksansom@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 10:00:42 by ksansom           #+#    #+#             */
-/*   Updated: 2023/11/22 12:04:13 by ksansom          ###   ########.fr       */
+/*   Updated: 2023/11/22 14:15:11 by ksansom          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,11 @@ static void	ft_checker(t_struct *game, int height, int width)
 	if (game->map[height][width] == 'C')
 		game->collectable_counter++;
 	if (game->map[height][width] == 'P')
+	{
 		game->player_counter++;
+		game->x_axis = width;
+		game->y_axis = height;
+	}
 	if (game->map[height][width] == 'E')
 		game->exit_counter++;
 }
@@ -74,7 +78,7 @@ void	ft_error_check(t_struct *game)
 	while (height < game->map_height - 1)
 	{
 		width = 0;
-		while (width < game->map_width - 1)
+		while (width < game->map_width)
 		{
 			ft_checker(game, height, width);
 			width++;
