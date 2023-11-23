@@ -6,7 +6,7 @@
 /*   By: ksansom <ksansom@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 10:10:58 by ksansom           #+#    #+#             */
-/*   Updated: 2023/11/23 16:45:43 by ksansom          ###   ########.fr       */
+/*   Updated: 2023/11/23 16:54:36 by ksansom          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ int	exit_x(void *param)
 	int		i;
 
 	game = (t_game *)param;
-	ft_printf("GIVING UP?!");
+	ft_printf("GIVING UP?!\n");
 	i = 0;
 	if (game->win_ptr)
 		mlx_destroy_window(game->mlx_ptr, game->win_ptr);
