@@ -80,7 +80,7 @@ int	exit_x(void *param)
 	int		i;
 
 	game = (t_game *)param;
-	ft_printf("GIVING UP?!\n");
+	ft_printf("Giving up?!\n");
 	i = 0;
 	if (game->win_ptr)
 		mlx_destroy_window(game->mlx_ptr, game->win_ptr);

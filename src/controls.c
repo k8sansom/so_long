@@ -97,7 +97,7 @@ int	ft_controls(int command, t_game *game)
 	int	move;
 
 	if (command == KEY_ESC)
-		ft_exit ("GIVING UP?!", game, 0);
+		ft_exit ("Giving up?!", game, 0);
 	if (command == KEY_W || command == KEY_UP)
 		move = ft_w(game);
 	if (command == KEY_S || command == KEY_DOWN)
