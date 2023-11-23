@@ -6,7 +6,7 @@
 /*   By: ksansom <ksansom@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 15:52:21 by ksansom           #+#    #+#             */
-/*   Updated: 2023/11/23 14:30:07 by ksansom          ###   ########.fr       */
+/*   Updated: 2023/11/23 14:32:38 by ksansom          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,14 @@
 # define PLAYER_XPM			"assets/Kate.xpm"
 # define EXIT_XPM			"assets/toilet.xpm"
 
+
+typedef struct s_image
+{
+	void	*xpm_ptr;
+	int		x;
+	int		y;
+}	t_image;
+
 typedef struct s_game
 {
 	int		fd;
@@ -59,12 +67,6 @@ typedef struct s_game
 	void	*win_ptr;
 }	t_game;
 
-typedef struct s_image
-{
-	void	*xpm_ptr;
-	int		x;
-	int		y;
-}	t_image;
 
 //map
 void	ft_read_map(t_game *game, char *s);

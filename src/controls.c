@@ -6,7 +6,7 @@
 /*   By: ksansom <ksansom@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 10:43:54 by ksansom           #+#    #+#             */
-/*   Updated: 2023/11/23 13:46:27 by ksansom          ###   ########.fr       */
+/*   Updated: 2023/11/23 14:33:16 by ksansom          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,6 @@ int	ft_controls(int command, t_game *game)
 	if (command == 2)
 		move = ft_d(game);
 	if (move)
-		ft_set_graphics(game);
+		ft_render_game(game);
 	return (0);
 }
