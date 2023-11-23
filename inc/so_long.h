@@ -6,7 +6,7 @@
 /*   By: ksansom <ksansom@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 15:52:21 by ksansom           #+#    #+#             */
-/*   Updated: 2023/11/23 15:40:33 by ksansom          ###   ########.fr       */
+/*   Updated: 2023/11/23 16:02:39 by ksansom          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,10 @@
 # define KEY_S		115
 # define KEY_D		100
 # define KEY_ESC	65307
+# define KEY_UP  	65362
+# define KEY_LEFT  	65361
+# define KEY_RIGHT 	65363
+# define KEY_DOWN  	65364	
 
 typedef struct s_image
 {
