@@ -6,7 +6,7 @@
 /*   By: ksansom <ksansom@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 10:10:58 by ksansom           #+#    #+#             */
-/*   Updated: 2023/11/23 13:49:08 by ksansom          ###   ########.fr       */
+/*   Updated: 2023/11/23 16:11:41 by ksansom          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,11 @@ void	ft_exit(char *s, t_game *game, int exit_code)
 	i = 0;
 	if (game->win_ptr)
 		mlx_destroy_window(game->mlx_ptr, game->win_ptr);
-	free(game->mlx_ptr);
+	if (game->mlx_ptr)
+		free(game->mlx_ptr);
 	if (game->fd)
 		close(game->fd);
-	while (i < game->map_height - 1)
+	while (i < game->map_height)
 	{
 		free(game->map[i]);
 		i++;

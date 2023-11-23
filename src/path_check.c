@@ -6,7 +6,7 @@
 /*   By: ksansom <ksansom@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 10:01:49 by ksansom           #+#    #+#             */
-/*   Updated: 2023/11/23 13:48:08 by ksansom          ###   ########.fr       */
+/*   Updated: 2023/11/23 16:10:05 by ksansom          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static void	ft_flood_fill(t_game *temp, int y, int x)
 void	ft_parse_path(t_game *game)
 {
 	t_game	temp;
-	int			i;
+	int		i;
 
 	ft_memset(&temp, 0, sizeof(t_game));
 	temp.map_height = game->map_height;
