@@ -18,19 +18,19 @@ void	ft_exit(char *s, t_struct *game, int exit_code)
 
 	i = 0;
 	if (game->win_ptr)
-		mlx_destroy_window (game->mlx_ptr, game->win_ptr);
-	free (game->mlx_ptr);
+		mlx_destroy_window(game->mlx_ptr, game->win_ptr);
+	free(game->mlx_ptr);
 	if (game->fd)
-		close (game->fd);
+		close(game->fd);
 	while (i < game->map_height - 1)
 	{
 		free(game->map[i]);
 		i++;
 	}
-	free (game->map);
+	free(game->map);
 	if (s)
 		ft_printf("%s\n", s);
-	exit (exit_code);
+	exit(exit_code);
 }
 
 int	ft_move(t_struct *game, int x, int y)
