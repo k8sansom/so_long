@@ -6,13 +6,13 @@
 /*   By: ksansom <ksansom@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 10:43:54 by ksansom           #+#    #+#             */
-/*   Updated: 2023/11/20 14:46:38 by ksansom          ###   ########.fr       */
+/*   Updated: 2023/11/23 13:46:27 by ksansom          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
 
-static int	ft_d(t_struct *game)
+static int	ft_d(t_game *game)
 {
 	int	x;
 	int	y;
@@ -32,7 +32,7 @@ static int	ft_d(t_struct *game)
 	return (1);
 }
 
-static int	ft_a(t_struct *game)
+static int	ft_a(t_game *game)
 {
 	int	x;
 	int	y;
@@ -52,7 +52,7 @@ static int	ft_a(t_struct *game)
 	return (1);
 }
 
-static int	ft_s(t_struct *game)
+static int	ft_s(t_game *game)
 {
 	int	x;
 	int	y;
@@ -72,7 +72,7 @@ static int	ft_s(t_struct *game)
 	return (1);
 }
 
-static int	ft_w(t_struct *game)
+static int	ft_w(t_game *game)
 {
 	int	x;
 	int	y;
@@ -92,7 +92,7 @@ static int	ft_w(t_struct *game)
 	return (1);
 }
 
-int	ft_controls(int command, t_struct *game)
+int	ft_controls(int command, t_game *game)
 {
 	int	move;
 

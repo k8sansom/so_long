@@ -6,13 +6,13 @@
 /*   By: ksansom <ksansom@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 10:10:58 by ksansom           #+#    #+#             */
-/*   Updated: 2023/11/22 12:52:06 by ksansom          ###   ########.fr       */
+/*   Updated: 2023/11/23 13:49:08 by ksansom          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
 
-void	ft_exit(char *s, t_struct *game, int exit_code)
+void	ft_exit(char *s, t_game *game, int exit_code)
 {
 	int	i;
 
@@ -33,7 +33,7 @@ void	ft_exit(char *s, t_struct *game, int exit_code)
 	exit(exit_code);
 }
 
-int	ft_move(t_struct *game, int x, int y)
+int	ft_move(t_game *game, int x, int y)
 {
 	if (game->map[y][x] == 'E')
 	{

@@ -6,13 +6,13 @@
 /*   By: ksansom <ksansom@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 10:00:42 by ksansom           #+#    #+#             */
-/*   Updated: 2023/11/22 14:15:11 by ksansom          ###   ########.fr       */
+/*   Updated: 2023/11/23 13:46:57 by ksansom          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
 
-static void	ft_checker(t_struct *game, int height, int width)
+static void	ft_checker(t_game *game, int height, int width)
 {
 	if (game->map[height][width] != '0' && game->map[height][width] != '1'\
 		&& game->map[height][width] != 'C' && game->map[height][width] != 'E'\
@@ -31,7 +31,7 @@ static void	ft_checker(t_struct *game, int height, int width)
 }
 
 
-static int	ft_horizontal(t_struct *game)
+static int	ft_horizontal(t_game *game)
 {
 	int	x;
 	int	y;
@@ -47,7 +47,7 @@ static int	ft_horizontal(t_struct *game)
 	return (1);
 }
 
-static int	ft_vertical(t_struct *game)
+static int	ft_vertical(t_game *game)
 {
 	int	y;
 	int	x;
@@ -63,7 +63,7 @@ static int	ft_vertical(t_struct *game)
 	return (1);
 }
 
-void	ft_error_check(t_struct *game)
+void	ft_error_check(t_game *game)
 {
 	int	vertical;
 	int	horizontal;

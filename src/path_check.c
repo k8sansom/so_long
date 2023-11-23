@@ -6,13 +6,13 @@
 /*   By: ksansom <ksansom@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 10:01:49 by ksansom           #+#    #+#             */
-/*   Updated: 2023/11/22 15:43:24 by ksansom          ###   ########.fr       */
+/*   Updated: 2023/11/23 13:48:08 by ksansom          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
 
-static void	ft_flood_fill(t_struct *temp, int y, int x)
+static void	ft_flood_fill(t_game *temp, int y, int x)
 {
 	if (temp->map[y][x] == '1' || y > (temp->map_height - 1) || y < 0 || \
 		x > (temp->map_width - 1) || x < 0)
@@ -31,12 +31,12 @@ static void	ft_flood_fill(t_struct *temp, int y, int x)
 	ft_flood_fill(temp, y, x - 1);
 }
 
-void	ft_parse_path(t_struct *game)
+void	ft_parse_path(t_game *game)
 {
-	t_struct	temp;
+	t_game	temp;
 	int			i;
 
-	ft_memset(&temp, 0, sizeof(t_struct));
+	ft_memset(&temp, 0, sizeof(t_game));
 	temp.map_height = game->map_height;
 	temp.map_width = game->map_width;
 	temp.collectable_counter = game->collectable_counter;

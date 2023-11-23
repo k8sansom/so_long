@@ -6,7 +6,7 @@
 /*   By: ksansom <ksansom@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 15:52:21 by ksansom           #+#    #+#             */
-/*   Updated: 2023/11/22 15:51:44 by ksansom          ###   ########.fr       */
+/*   Updated: 2023/11/23 14:30:07 by ksansom          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,16 @@
 # define IMG_W	32
 # define IMG_H	32
 
-typedef struct s_struct
+
+
+
+# define WALL_XPM			"assets/wall.xpm"
+# define FLOOR_XPM			"assets/floor.xpm"
+# define WINE_XPM			"assets/wine.xpm"
+# define PLAYER_XPM			"assets/Kate.xpm"
+# define EXIT_XPM			"assets/toilet.xpm"
+
+typedef struct s_game
 {
 	int		fd;
 	int		map_height;
@@ -39,34 +48,43 @@ typedef struct s_struct
 	int		exit_code;
 
 	char	**map;
-	void	*ground;
-	void	*wall;
-	void	*player;
-	void	*exit;
-	void	*collectable;
+
+	t_image	floor;
+	t_image	wall;
+	t_image	player;
+	t_image	exit;
+	t_image	wine;
+
 	void	*mlx_ptr;
 	void	*win_ptr;
-}	t_struct;
+}	t_game;
+
+typedef struct s_image
+{
+	void	*xpm_ptr;
+	int		x;
+	int		y;
+}	t_image;
 
 //map
-void	ft_read_map(t_struct *game, char *s);
+void	ft_read_map(t_game *game, char *s);
 
 //graphics
-void	ft_set_images(t_struct *game);
-void	ft_set_graphics(t_struct *game);
+void	ft_set_sprites(t_game *game);
+void	ft_render_game(t_game *game);
 
 //errors
-void	ft_error_check(t_struct *game);
+void	ft_error_check(t_game *game);
 
 //path check
-void	ft_parse_path(t_struct *game);
+void	ft_parse_path(t_game *game);
 
 //utils
-void	ft_exit(char *s, t_struct *game, int exit_code);
-int		ft_move(t_struct *game, int x, int y);
+void	ft_exit(char *s, t_game *game, int exit_code);
+int		ft_move(t_game *game, int x, int y);
 void	ft_free(char **arr, int n);
 
 //controls
-int		ft_controls(int command, t_struct *game);
+int		ft_controls(int command, t_game *game);
 
 #endif

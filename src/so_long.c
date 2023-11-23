@@ -6,7 +6,7 @@
 /*   By: ksansom <ksansom@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 15:48:40 by ksansom           #+#    #+#             */
-/*   Updated: 2023/11/22 16:01:15 by ksansom          ###   ########.fr       */
+/*   Updated: 2023/11/23 14:15:39 by ksansom          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 int	main(int ac, char **av)
 {
-	t_struct	game;
+	t_game	game;
 
 	if (ac != 2)
 	{
 		ft_printf("Error: no map name provided\n");
 		exit(STDERR_FILENO); 
 	}
-	ft_memset(&game, 0, sizeof(t_struct));
+	ft_memset(&game, 0, sizeof(t_game));
 	ft_read_map(&game, av[1]);
 	ft_error_check(&game);
 	ft_parse_path(&game);
@@ -33,8 +33,8 @@ int	main(int ac, char **av)
 		"So Long");
 	if (game.win_ptr == NULL)
 		ft_exit ("Error: initializing window", &game, game.exit_code++);
-	ft_set_images(&game);
-	ft_set_graphics(&game);
+	ft_set_sprites(&game);
+	ft_render_game(&game);
 	mlx_key_hook(game.win_ptr, ft_controls, &game);
 	mlx_hook(game.win_ptr, 17, 0, (void *)exit, 0);
 	mlx_loop(game.mlx_ptr);
