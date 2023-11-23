@@ -6,7 +6,7 @@
 /*   By: ksansom <ksansom@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 10:43:54 by ksansom           #+#    #+#             */
-/*   Updated: 2023/11/23 14:33:16 by ksansom          ###   ########.fr       */
+/*   Updated: 2023/11/23 15:49:47 by ksansom          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,15 +96,15 @@ int	ft_controls(int command, t_game *game)
 {
 	int	move;
 
-	if (command == 53)
+	if (command == KEY_ESC)
 		ft_exit ("", game, 0);
-	if (command == 13)
+	if (command == KEY_W)
 		move = ft_w(game);
-	if (command == 1)
+	if (command == KEY_S)
 		move = ft_s(game);
-	if (command == 0)
+	if (command == KEY_A)
 		move = ft_a(game);
-	if (command == 2)
+	if (command == KEY_D)
 		move = ft_d(game);
 	if (move)
 		ft_render_game(game);

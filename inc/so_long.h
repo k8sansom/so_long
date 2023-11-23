@@ -6,7 +6,7 @@
 /*   By: ksansom <ksansom@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 15:52:21 by ksansom           #+#    #+#             */
-/*   Updated: 2023/11/23 14:32:38 by ksansom          ###   ########.fr       */
+/*   Updated: 2023/11/23 15:40:33 by ksansom          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,17 @@
 # define IMG_W	32
 # define IMG_H	32
 
-
-
-
 # define WALL_XPM			"assets/wall.xpm"
 # define FLOOR_XPM			"assets/floor.xpm"
 # define WINE_XPM			"assets/wine.xpm"
 # define PLAYER_XPM			"assets/Kate.xpm"
 # define EXIT_XPM			"assets/toilet.xpm"
 
+# define KEY_W		119
+# define KEY_A		97
+# define KEY_S		115
+# define KEY_D		100
+# define KEY_ESC	65307
 
 typedef struct s_image
 {
@@ -66,7 +68,6 @@ typedef struct s_game
 	void	*mlx_ptr;
 	void	*win_ptr;
 }	t_game;
-
 
 //map
 void	ft_read_map(t_game *game, char *s);
