@@ -6,7 +6,7 @@
 /*   By: ksansom <ksansom@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 15:48:40 by ksansom           #+#    #+#             */
-/*   Updated: 2023/11/23 15:47:36 by ksansom          ###   ########.fr       */
+/*   Updated: 2023/11/23 16:48:15 by ksansom          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,6 @@ int	main(int ac, char **av)
 	ft_set_sprites(&game);
 	ft_render_game(&game);
 	mlx_hook(game.win_ptr, KeyPress, KeyPressMask, ft_controls, &game);
-	mlx_hook(game.win_ptr, 17, 0, (void *)exit, 0);
+	mlx_hook(game.win_ptr, 17, 0, exit_x, &game);
 	mlx_loop(game.mlx_ptr);
 }

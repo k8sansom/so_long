@@ -6,7 +6,7 @@
 /*   By: ksansom <ksansom@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 15:52:21 by ksansom           #+#    #+#             */
-/*   Updated: 2023/11/23 16:02:39 by ksansom          ###   ########.fr       */
+/*   Updated: 2023/11/23 16:28:04 by ksansom          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ void	ft_parse_path(t_game *game);
 void	ft_exit(char *s, t_game *game, int exit_code);
 int		ft_move(t_game *game, int x, int y);
 void	ft_free(char **arr, int n);
+int		exit_x(void *param);
 
 //controls
 int		ft_controls(int command, t_game *game);

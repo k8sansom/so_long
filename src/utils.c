@@ -6,7 +6,7 @@
 /*   By: ksansom <ksansom@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 10:10:58 by ksansom           #+#    #+#             */
-/*   Updated: 2023/11/23 16:11:41 by ksansom          ###   ########.fr       */
+/*   Updated: 2023/11/23 16:45:43 by ksansom          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_exit(char *s, t_game *game, int exit_code)
 	if (game->win_ptr)
 		mlx_destroy_window(game->mlx_ptr, game->win_ptr);
 	if (game->mlx_ptr)
-		free(game->mlx_ptr);
+		mlx_destroy_display(game->mlx_ptr);
 	if (game->fd)
 		close(game->fd);
 	while (i < game->map_height)
@@ -72,4 +72,27 @@ void	ft_free(char **arr, int n)
 		i++;
 	}
 	free(arr);
+}
+
+int	exit_x(void *param)
+{
+	t_game	*game;
+	int		i;
+
+	game = (t_game *)param;
+	ft_printf("GIVING UP?!");
+	i = 0;
+	if (game->win_ptr)
+		mlx_destroy_window(game->mlx_ptr, game->win_ptr);
+	if (game->mlx_ptr)
+		mlx_destroy_display(game->mlx_ptr);
+	if (game->fd)
+		close(game->fd);
+	while (i < game->map_height)
+	{
+		free(game->map[i]);
+		i++;
+	}
+	free(game->map);
+	exit(0);
 }
