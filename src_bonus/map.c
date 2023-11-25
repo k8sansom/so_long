@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/so_long.h"
+#include "../inc_bonus/so_long.h"
 
 static int	ft_get_width(char *str)
 {

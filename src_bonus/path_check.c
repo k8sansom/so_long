@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/so_long.h"
+#include "../inc_bonus/so_long.h"
 
 static void	ft_flood_fill(t_game *temp, int y, int x)
 {

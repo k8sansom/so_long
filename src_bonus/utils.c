@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/so_long.h"
+#include "../inc_bonus/so_long.h"
 
 void	ft_exit(char *s, t_game *game, int exit_code)
 {

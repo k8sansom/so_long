@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/so_long.h"
+#include "../inc_bonus/so_long.h"
 
 static void	ft_checker(t_game *game, int height, int width)
 {
