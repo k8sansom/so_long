@@ -20,11 +20,12 @@ static int	ft_d(t_game *game)
 
 	x = game->x_axis;
 	y = game->y_axis;
+	ft_render_player(game, y, x, 'R');
 	++x;
 	if (game->map[y][x] == '1')
 		return ;
 	if (game->map[y][x] == 'V')
-		ft_exit("Game Over!", game, game->exit_code++);
+		ft_exit("Game Over!", game, 0);
 	move = ft_move(game, x, y);
 	if (!move)
 		return ;
@@ -45,11 +46,12 @@ static int	ft_a(t_game *game)
 
 	x = game->x_axis;
 	y = game->y_axis;
+	ft_render_player(game, y, x, 'L');
 	--x;
 	if (game->map[y][x] == '1')
 		return ;
 	if (game->map[y][x] == 'V')
-		ft_exit("Game Over!", game, game->exit_code++);
+		ft_exit("Game Over!", game, 0);
 	move = ft_move(game, x, y);
 	if (!move)
 		return ;
@@ -67,11 +69,12 @@ static int	ft_s(t_game *game)
 
 	x = game->x_axis;
 	y = game->y_axis;
+	ft_render_player(game, y, x, 'D');
 	++y;
 	if (game->map[y][x] == '1')
 		return ;
 	if (game->map[y][x] == 'V')
-		ft_exit("Game Over!", game, game->exit_code++);
+		ft_exit("Game Over!", game, 0);
 	move = ft_move(game, x, y);
 	if (!move)
 		return ;
@@ -92,11 +95,12 @@ static void	ft_w(t_game *game)
 
 	x = game->x_axis;
 	y = game->y_axis;
+	ft_render_player(game, y, x, 'U');
 	--y;
 	if (game->map[y][x] == '1')
 		return ;
 	if (game->map[y][x] == 'V')
-		ft_exit("Game Over!", game, game->exit_code++);
+		ft_exit("Game Over!", game, 0);
 	move = ft_move(game, x, y);
 	if (!move)
 		return ;

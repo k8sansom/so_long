@@ -87,6 +87,7 @@ void	ft_read_map(t_game *game, char *s);
 //graphics
 void	ft_set_sprites(t_game *game);
 void	ft_render_game(t_game *game, int c);
+void	ft_render_player(t_game *game, int y, int x, char c);
 
 //errors
 void	ft_error_check(t_game *game);
