@@ -69,16 +69,13 @@ t_image	ft_new_sprite(void *mlx, char *path, t_game *game)
 
 void	ft_set_sprites(t_game *game)
 {
-	void	*mlx;
-
-	mlx = game->mlx_ptr;
-	game->floor = ft_new_sprite(mlx, FLOOR_XPM, game);
-	game->wall = ft_new_sprite(mlx, WALL_XPM, game);
-	game->player_up = ft_new_sprite(mlx, PLAYER_UP_XPM, game);
-	game->player_down = ft_new_sprite(mlx, PLAYER_DOWN_XPM, game);
-	game->player_left = ft_new_sprite(mlx, PLAYER_LEFT_XPM, game);
-	game->player_right = ft_new_sprite(mlx, PLAYER_RIGHT_XPM, game);
-	game->wine = ft_new_sprite(mlx, WINE_XPM, game);
-	game->exit = ft_new_sprite(mlx, EXIT_XPM, game);
-	game->enemy = ft_new_sprite(mlx, ENEMY_XPM, game);
+	game->floor = ft_new_sprite(game->mlx_ptr, FLOOR_XPM, game);
+	game->wall = ft_new_sprite(game->mlx_ptr, WALL_XPM, game);
+	game->player_up = ft_new_sprite(game->mlx_ptr, PLAYER_UP_XPM, game);
+	game->player_down = ft_new_sprite(game->mlx_ptr, PLAYER_DOWN_XPM, game);
+	game->player_left = ft_new_sprite(game->mlx_ptr, PLAYER_LEFT_XPM, game);
+	game->player_right = ft_new_sprite(game->mlx_ptr, PLAYER_RIGHT_XPM, game);
+	game->wine = ft_new_sprite(game->mlx_ptr, WINE_XPM, game);
+	game->exit = ft_new_sprite(game->mlx_ptr, EXIT_XPM, game);
+	game->enemy = ft_new_sprite(game->mlx_ptr, ENEMY_XPM, game);
 }

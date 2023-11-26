@@ -33,8 +33,7 @@ static int	ft_d(t_game *game)
 	if (!move)
 		return ;
 	game->map[y][x - 1] = '0';
-	ft_printf("Moves: %i, Collectables left: %i\n", game->move_counter, \
-		game->collectable_counter);
+	ft_print_to_screen(game);
 	return ;
 }
 
@@ -56,8 +55,7 @@ static int	ft_a(t_game *game)
 		return ;
 	ft_render_game(game, 'L');
 	game->map[y][x + 1] = '0';
-	ft_printf("Moves: %i, Collectables left: %i\n", game->move_counter, \
-		game->collectable_counter);
+	ft_print_to_screen(game);
 	return ;
 }
 
@@ -82,8 +80,7 @@ static int	ft_s(t_game *game)
 	if (!move)
 		return ;
 	game->map[y - 1][x] = '0';
-	ft_printf("Moves: %i, Collectables left: %i\n", game->move_counter, \
-		game->collectable_counter);
+	ft_print_to_screen(game);
 	return ;
 }
 
@@ -105,8 +102,7 @@ static void	ft_w(t_game *game)
 		return ;
 	ft_render_game(game, 'U');
 	game->map[y + 1][x] = '0';
-	ft_printf("Moves: %i, Collectables left: %i\n", game->move_counter, \
-		game->collectable_counter);
+	ft_print_to_screen(game);
 	return ;
 }
 

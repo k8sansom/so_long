@@ -12,6 +12,20 @@
 
 #include "../inc_bonus/so_long.h"
 
+void	ft_print_to_screen(t_game *game)
+{
+	char *moves;
+	char *final;
+
+	moves = ft_itoa(game->move_counter);
+	final = ft_strjoin("Moves: ", moves);
+	mlx_string_put(game->mlx_ptr, game->win_ptr, \
+		(game->map_width * IMG_W) * 0.4, (game->map_height * IMG_H) * 0.8, \
+		25500, final);
+	free(moves);
+	free(final);
+}
+
 void	ft_exit(char *s, t_game *game, int exit_code)
 {
 	int	i;

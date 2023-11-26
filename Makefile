@@ -11,6 +11,7 @@
 # **************************************************************************** #
 
 NAME = so_long
+BONUS = so_long_bonus
 
 SRCS = ./src/so_long.c ./src/map.c ./src/errors.c ./src/graphics.c \
 	./src/utils.c ./src/controls.c ./src/path_check.c
@@ -35,6 +36,9 @@ all: $(MLX_LIB) $(LIBFT) $(NAME)
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(MLX_FLAGS)
 
+$(BONUS): $(BONUS_OBJS)
+	$(CC) $(CFLAGS) -o $(BONUS) $(BONUS_OBJS) $(MLX_FLAGS)
+
 .c.o:
 	$(CC) $(CFLAGS) -c -o $@ $< $(INCLUDES)
  
@@ -47,11 +51,13 @@ clean:
 	@$(RM) $(OBJS)
 	@$(MAKE) -C $(MLX_DIR) clean
 	@$(MAKE) -C $(LIBFT_DIR) clean
+	@$(RM) $(BONUS_OBJS)
 
 fclean: clean 
 	@$(RM) $(NAME)
 	@$(RM) $(MLX_LIB)
 	@$(RM) $(LIBFT)
+	@$(RM) $(BONUS)
 
 re: fclean all
 
