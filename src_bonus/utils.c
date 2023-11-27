@@ -31,7 +31,6 @@ void	ft_exit(char *s, t_game *game, int exit_code)
 	int	i;
 
 	i = 0;
-	ft_print_to_screen(game);
 	if (game->win_ptr)
 		mlx_destroy_window(game->mlx_ptr, game->win_ptr);
 	if (game->mlx_ptr)
