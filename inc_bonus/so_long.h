@@ -6,7 +6,7 @@
 /*   By: ksansom <ksansom@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 15:52:21 by ksansom           #+#    #+#             */
-/*   Updated: 2023/11/23 16:28:04 by ksansom          ###   ########.fr       */
+/*   Updated: 2023/11/27 10:38:07 by ksansom          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ typedef struct s_game
 	t_image	player_down;
 	t_image	player_up;
 	t_image	player_right;
-	t_image player_left;
+	t_image	player_left;
 	t_image	exit;
 	t_image	wine;
 	t_image	enemy;
@@ -100,6 +100,7 @@ void	ft_exit(char *s, t_game *game, int exit_code);
 int		ft_move(t_game *game, int x, int y);
 void	ft_free(char **arr, int n);
 int		exit_x(void *param);
+void	ft_print_to_screen(t_game *game);
 
 //controls
 int		ft_controls(int command, t_game *game);

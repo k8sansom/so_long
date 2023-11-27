@@ -6,12 +6,12 @@
 #    By: ksansom <ksansom@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/08 16:07:51 by ksansom           #+#    #+#              #
-#    Updated: 2023/11/20 16:05:08 by ksansom          ###   ########.fr        #
+#    Updated: 2023/11/27 10:00:33 by ksansom          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
-BONUS = so_long_bonus
+BONUS = sl_bonus
 
 SRCS = ./src/so_long.c ./src/map.c ./src/errors.c ./src/graphics.c \
 	./src/utils.c ./src/controls.c ./src/path_check.c
@@ -36,8 +36,8 @@ all: $(MLX_LIB) $(LIBFT) $(NAME)
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(MLX_FLAGS)
 
-$(BONUS): $(BONUS_OBJS)
-	$(CC) $(CFLAGS) -o $(BONUS) $(BONUS_OBJS) $(MLX_FLAGS)
+$(BONUS): $(OBJS_BONUS)
+	$(CC) $(CFLAGS) -o $(BONUS) $(OBJS_BONUS) $(MLX_FLAGS)
 
 .c.o:
 	$(CC) $(CFLAGS) -c -o $@ $< $(INCLUDES)
@@ -48,10 +48,9 @@ $(LIBFT):
 	@make -C $(LIBFT_DIR)
 
 clean:
-	@$(RM) $(OBJS)
+	@$(RM) $(OBJS) $(OBJS_BONUS)
 	@$(MAKE) -C $(MLX_DIR) clean
 	@$(MAKE) -C $(LIBFT_DIR) clean
-	@$(RM) $(BONUS_OBJS)
 
 fclean: clean 
 	@$(RM) $(NAME)

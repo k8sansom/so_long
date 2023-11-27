@@ -6,7 +6,7 @@
 /*   By: ksansom <ksansom@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 10:10:58 by ksansom           #+#    #+#             */
-/*   Updated: 2023/11/23 16:54:36 by ksansom          ###   ########.fr       */
+/*   Updated: 2023/11/27 10:30:36 by ksansom          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 void	ft_print_to_screen(t_game *game)
 {
-	char *moves;
-	char *collectables;
-	char *final;
+	char	*moves;
+	char	*collectables;
+	char	*final;
 
 	moves = ft_itoa(game->move_counter);
 	collectables = ft_itoa(game->collectable_counter);
 	final = ft_strjoin("Moves: ", moves);
-	final = ft_strjoin(final, " ,collectables left: ");
+	final = ft_strjoin(final, ", collectables left: ");
 	final = ft_strjoin(final, collectables);
 	mlx_string_put(game->mlx_ptr, game->win_ptr, \
-		(game->map_width * IMG_W) * 0.2, (game->map_height * IMG_H) * 0.8, \
+		(game->map_width * IMG_W) * 0.03, (game->map_height * IMG_H) * 0.98, \
 		25500, final);
 	free(moves);
 	free(collectables);
@@ -36,6 +36,7 @@ void	ft_exit(char *s, t_game *game, int exit_code)
 	int	i;
 
 	i = 0;
+	ft_print_to_screen(game);
 	if (game->win_ptr)
 		mlx_destroy_window(game->mlx_ptr, game->win_ptr);
 	if (game->mlx_ptr)

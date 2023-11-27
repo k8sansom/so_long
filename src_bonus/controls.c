@@ -6,7 +6,7 @@
 /*   By: ksansom <ksansom@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 10:43:54 by ksansom           #+#    #+#             */
-/*   Updated: 2023/11/23 16:55:07 by ksansom          ###   ########.fr       */
+/*   Updated: 2023/11/27 10:55:18 by ksansom          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,25 +17,22 @@ static int	ft_d(t_game *game)
 	int	x;
 	int	y;
 	int	move;
+	int	c;
 
+	c = 'R';
 	x = game->x_axis;
 	y = game->y_axis;
-	ft_render_player(game, y, x, 'R');
 	++x;
 	if (game->map[y][x] == '1')
-		return ;
+		return (0);
 	if (game->map[y][x] == 'V')
 		ft_exit("Game Over!", game, 0);
 	move = ft_move(game, x, y);
 	if (!move)
-		return ;
-	ft_render_game(game, 'R');
-	move = ft_move(game, x, y);
-	if (!move)
-		return ;
+		return (0);
 	game->map[y][x - 1] = '0';
 	ft_print_to_screen(game);
-	return ;
+	return (c);
 }
 
 static int	ft_a(t_game *game)
@@ -43,22 +40,22 @@ static int	ft_a(t_game *game)
 	int	x;
 	int	y;
 	int	move;
+	int	c;
 
+	c = 'L';
 	x = game->x_axis;
 	y = game->y_axis;
-	ft_render_player(game, y, x, 'L');
 	--x;
 	if (game->map[y][x] == '1')
-		return ;
+		return (0);
 	if (game->map[y][x] == 'V')
 		ft_exit("Game Over!", game, 0);
 	move = ft_move(game, x, y);
 	if (!move)
-		return ;
-	ft_render_game(game, 'L');
+		return (0);
 	game->map[y][x + 1] = '0';
 	ft_print_to_screen(game);
-	return ;
+	return (c);
 }
 
 static int	ft_s(t_game *game)
@@ -66,61 +63,63 @@ static int	ft_s(t_game *game)
 	int	x;
 	int	y;
 	int	move;
+	int	c;
 
+	c = 'D';
 	x = game->x_axis;
 	y = game->y_axis;
-	ft_render_player(game, y, x, 'D');
 	++y;
 	if (game->map[y][x] == '1')
-		return ;
+		return (0);
 	if (game->map[y][x] == 'V')
 		ft_exit("Game Over!", game, 0);
 	move = ft_move(game, x, y);
 	if (!move)
-		return ;
-	ft_render_game(game, 'D');
-	move = ft_move(game, x, y);
-	if (!move)
-		return ;
+		return (0);
 	game->map[y - 1][x] = '0';
 	ft_print_to_screen(game);
-	return ;
+	return (c);
 }
 
-static void	ft_w(t_game *game)
+static int	ft_w(t_game *game)
 {
 	int	x;
 	int	y;
 	int	move;
+	int	c;
 
+	c = 'U';
 	x = game->x_axis;
 	y = game->y_axis;
-	ft_render_player(game, y, x, 'U');
 	--y;
 	if (game->map[y][x] == '1')
-		return ;
+		return (0);
 	if (game->map[y][x] == 'V')
 		ft_exit("Game Over!", game, 0);
 	move = ft_move(game, x, y);
 	if (!move)
-		return ;
-	ft_render_game(game, 'U');
+		return (0);
 	game->map[y + 1][x] = '0';
 	ft_print_to_screen(game);
-	return ;
+	return (c);
 }
 
 int	ft_controls(int command, t_game *game)
 {
+	int	c;
+
+	c = 0;
 	if (command == KEY_ESC)
 		ft_exit ("Giving up?!", game, 0);
 	if (command == KEY_W || command == KEY_UP)
-		move = ft_w(game);
+		c = ft_w(game);
 	if (command == KEY_S || command == KEY_DOWN)
-		move = ft_s(game);
+		c = ft_s(game);
 	if (command == KEY_A || command == KEY_LEFT)
-		move = ft_a(game);
+		c = ft_a(game);
 	if (command == KEY_D || command == KEY_RIGHT)
-		move = ft_d(game);
-	return ;
+		c = ft_d(game);
+	if (c)
+		ft_render_game(game, c);
+	return (0);
 }

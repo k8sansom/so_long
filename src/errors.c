@@ -6,7 +6,7 @@
 /*   By: ksansom <ksansom@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 10:00:42 by ksansom           #+#    #+#             */
-/*   Updated: 2023/11/23 13:46:57 by ksansom          ###   ########.fr       */
+/*   Updated: 2023/11/27 10:59:43 by ksansom          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ static void	ft_checker(t_game *game, int height, int width)
 	if (game->map[height][width] == 'E')
 		game->exit_counter++;
 }
-
 
 static int	ft_horizontal(t_game *game)
 {
