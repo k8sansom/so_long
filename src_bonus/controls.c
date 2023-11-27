@@ -6,7 +6,7 @@
 /*   By: ksansom <ksansom@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 10:43:54 by ksansom           #+#    #+#             */
-/*   Updated: 2023/11/27 10:55:18 by ksansom          ###   ########.fr       */
+/*   Updated: 2023/11/27 11:09:34 by ksansom          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ static int	ft_d(t_game *game)
 	if (!move)
 		return (0);
 	game->map[y][x - 1] = '0';
-	ft_print_to_screen(game);
 	return (c);
 }
 
@@ -54,7 +53,6 @@ static int	ft_a(t_game *game)
 	if (!move)
 		return (0);
 	game->map[y][x + 1] = '0';
-	ft_print_to_screen(game);
 	return (c);
 }
 
@@ -77,7 +75,6 @@ static int	ft_s(t_game *game)
 	if (!move)
 		return (0);
 	game->map[y - 1][x] = '0';
-	ft_print_to_screen(game);
 	return (c);
 }
 
@@ -100,7 +97,6 @@ static int	ft_w(t_game *game)
 	if (!move)
 		return (0);
 	game->map[y + 1][x] = '0';
-	ft_print_to_screen(game);
 	return (c);
 }
 
@@ -121,5 +117,6 @@ int	ft_controls(int command, t_game *game)
 		c = ft_d(game);
 	if (c)
 		ft_render_game(game, c);
+	ft_print_to_screen(game);
 	return (0);
 }
