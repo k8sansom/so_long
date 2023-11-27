@@ -15,14 +15,19 @@
 void	ft_print_to_screen(t_game *game)
 {
 	char *moves;
+	char *collectables;
 	char *final;
 
 	moves = ft_itoa(game->move_counter);
+	collectables = ft_itoa(game->collectable_counter);
 	final = ft_strjoin("Moves: ", moves);
+	final = ft_strjoin(final, " ,collectables left: ");
+	final = ft_strjoin(final, collectables);
 	mlx_string_put(game->mlx_ptr, game->win_ptr, \
-		(game->map_width * IMG_W) * 0.4, (game->map_height * IMG_H) * 0.8, \
+		(game->map_width * IMG_W) * 0.2, (game->map_height * IMG_H) * 0.8, \
 		25500, final);
 	free(moves);
+	free(collectables);
 	free(final);
 }
 
